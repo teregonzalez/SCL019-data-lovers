@@ -543,16 +543,16 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 
 #### Diseño de experiencia de usuario (User Experience Design)
 
-* Investigación con usuarios / entrevistas
-* Principios de diseño visual
+* [Investigación con usuarios / entrevistas](https://lms.laboratoria.la/cohorts/scl-2021-11-bootcamp-js-scl020/topics/intro-ux/01-el-proceso-de-diseno/00-el-proceso-de-diseno).
+* [Principios de diseño visual](https://lms.laboratoria.la/cohorts/scl-2021-11-bootcamp-js-scl020/topics/diseno-visual).
 
 #### Desarrollo Front-end
 
-* Unidad de testing en curso de JavaScript en LMS.
-* Unidad de arreglos en curso de JavaScript en LMS.
-* Unidad de objetos en curso de JavaScript en LMS.
-* Unidad de funciones en curso de JavaScript en LMS.
-* Unidad de DOM en curso de Browser JavaScript en LMS.
+* [Unidad de testing en curso de JavaScript en LMS](https://lms.laboratoria.la/cohorts/scl-2021-09-prebootcamp-js-scl020/topics/javascript/11-testing/00-opening).
+* [Unidad de arreglos en curso de JavaScript en LMS](https://lms.laboratoria.la/cohorts/scl-2021-09-prebootcamp-js-scl020/topics/javascript/04-arrays/01-arrays).
+* [Unidad de objetos en curso de JavaScript en LMS](https://lms.laboratoria.la/cohorts/scl-2021-09-prebootcamp-js-scl020/topics/javascript/05-objects/01-objects).
+* [Unidad de funciones en curso de JavaScript en LMS](https://lms.laboratoria.la/cohorts/scl-2021-09-prebootcamp-js-scl020/topics/javascript/03-functions/00-opening).
+* [Unidad de DOM en curso de Browser JavaScript en LMS](https://lms.laboratoria.la/cohorts/scl-2021-11-bootcamp-js-scl020/topics/browser/02-dom/00-opening).
 * [Array en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
 * [Array.sort en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort)
 * [Array.map en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/map)
