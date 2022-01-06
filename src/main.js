@@ -1,16 +1,15 @@
-import { example } from './data.js';
+import { charFilterMovie } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
 
-// Accediendo a la información de películas, personajes y directores
-let films = data.films;
+// Accediendo a la información de películas.
+const films = data.films;
 
-//let directors = films[i].director;
-//let characterImg = characters[i].img
+// Declarando variables para select de personajes.
+const charByFilm = document.getElementById("charactersByFilm")
 
-
-// Que se muestren las imagenes de personajes
+// Que se muestren las imagenes de personajes.
 const charContainer = document.getElementById("charContainer");
 
 const charImage = (characters) => {
@@ -27,4 +26,25 @@ for (let i = 0; i < films.length; i++) {
     } 
 }
 
-console.log(example, data);
+//Que la función de filtrado se active al interactuar con el select.
+charByFilm.addEventListener('select', () => {
+    switch (charByFilm) {
+        case '0':
+            console.log("Todas las películas");
+            break;
+        
+        case '1':
+            alert("Opción 2")
+    
+        default:
+            break;
+    }
+
+} );
+
+
+//console.log(example, data);
+
+
+//let directors = films[i].director;
+//let characterImg = characters[i].img

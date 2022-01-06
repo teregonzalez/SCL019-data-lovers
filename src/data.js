@@ -1,9 +1,14 @@
 // estas funciones son de ejemplo
 
-export const example = () => {
-  return 'example';
+export const charFilterMovie = (data, nameFilm) => {
+  const charMovie = data.filter (char => char.film == nameFilm);
+  return charMovie;
 };
 
 export const anotherExample = () => {
   return 'OMG';
 };
+
+
+
+
