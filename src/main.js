@@ -6,6 +6,9 @@ import data from './data/ghibli/ghibli.js';
 // Accediendo a la información de películas.
 const films = data.films;
 
+// Declarando variables para select de personajes.
+const charByFilm = document.getElementById("charactersByFilm")
+
 // Que se muestren las imagenes de personajes.
 const charContainer = document.getElementById("charContainer");
 
@@ -23,19 +26,14 @@ for (let i = 0; i < films.length; i++) {
     } 
 }
 
-// Declarando variables para select de personajes.
-const charByFilm = document.getElementById("charactersByFilm");
-let charByFilmValues = charByFilm.options[charByFilm.selectedIndex].value;
-
 //Que la función de filtrado se active al interactuar con el select.
-charByFilm.addEventListener('change', () => {
-    switch (charByFilmValues) {
+charByFilm.addEventListener('select', () => {
+    switch (charByFilm) {
         case '0':
             console.log("Todas las películas");
             break;
-        
         case '1':
-            console.log("Opción 2");
+            alert("Opción 2")
     
         default:
             break;
