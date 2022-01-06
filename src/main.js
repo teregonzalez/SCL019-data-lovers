@@ -25,7 +25,7 @@ for (let i = 0; i < films.length; i++) {
 
 // Declarando variables para select de personajes.
 const charByFilm = document.getElementById("charactersByFilm");
-let charByFilmValues = charByFilm.options[charByFilm.selectedIndex].value;
+let charByFilmValues = charByFilm.value;
 
 //Que la función de filtrado se active al interactuar con el select.
 charByFilm.addEventListener('change', () => {
