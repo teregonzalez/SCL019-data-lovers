@@ -1,8 +1,12 @@
-
-export const characterFilterMovie = (data, nameFilm) => {
-  const movieCharacters = data.filter (characters => characters.films == nameFilm);
+export const characterFilterMovie = (films, filmTitle) => {
+  const movieCharacters = films.filter (characters => characters.films == filmTitle);
   return movieCharacters;
 };
+
+
+
+
+
 
 export const anotherExample = () => {
   return 'OMG';

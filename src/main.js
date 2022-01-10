@@ -33,65 +33,59 @@ const charByFilm = document.getElementById("charactersByFilm")
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
         case 'Every-movie':
-            displayCharacters(films)
-            console.log("Caso 0");
+            displayCharacters(films);
             break;
         case 'Castle-in-the-Sky':
-            console.log("Caso 1");
-            displayCharacters(characterFilterMovie(films, "Castle in the Sky"))
-            break;
-        case 'From-Up-on-Poppy-Hill':
-            console.log("Caso 2");
-            for (let i = 0; i < films[i].title.length; i++) {
-                let characters = films[i].people;
-                for (let j = 0; j < characters.length; j++) {
-                    console.log(characters[j])
-                    charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+            let characters0 = films[0].people;
+                for (let j = 0; j < characters0.length; j++) {
+                    charContainer.innerHTML += characterImage(characters0[j].img, characters0[j].name);
                 } 
-            }
-            break;
-        case 'Grave-of-the-Fireflies':
-            console.log("Caso 3");
-            break;
-        case 'Howls-Moving-Castle':
-            console.log("Caso 4");
-            break;
-        case '"Kikis-Delivery-Service"':
-            console.log("Caso 5");
             break;
         case 'My-Neighbor-Totoro':
+            displayCharacters(characterFilterMovie(films, "My Neighbor Totoro"));
             break;
-        case 'My-Neighbors-the-Yamadas"':
+        case 'Kikis-Delivery-Service':
+            break;
+        case 'Grave-of-the-Fireflies':
             break;
         case 'Only-Yesterday':
             break;
-        case 'Pom-Poko':
-            break;
-        case 'Ponyo-on-the-Cliff-by-the-Sea':
-            break;
         case 'Porco-Rosso':
             break;
-        case 'Princess-Mononoke':
-            break;
-        case 'Spirited-Away':
-            break;
-        case 'Tales-from-Earthsea':
-            break;
-        case 'The-Cat-Returns':
-            break;
-        case 'The-Secret-World-of-Arrietty':
-            break;
-        case 'The-Tale-of-the-Princess-Kaguya':
-            break;
-        case 'The-Wind-Rises':
-            break;
-        case 'When-Marnie-Was-There':
+        case 'Pom-Poko':
             break;
         case 'Whisper-of-the-Heart':
             break;
+        case 'Princess-Mononoke':
+            break;
+        case 'My-Neighbors-the-Yamadas"':
+            break;
+        case 'Spirited-Away':
+            break;
+        case 'The-Cat-Returns':
+            break;
+        case 'Howls-Moving-Castle':
+            break; 
+        case 'Tales-from-Earthsea':
+            break;
+        case 'Ponyo-on-the-Cliff-by-the-Sea':
+            break;
+        case 'The-Secret-World-of-Arrietty':
+            break;
+        case 'From-Up-on-Poppy-Hill':
+            let characters = films[16].people;
+                for (let j = 0; j < characters.length; j++) {
+                    charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+                } 
+            break;
+        case 'The-Wind-Rises':
+            break;     
+        case 'The-Tale-of-the-Princess-Kaguya':
+            break;
+        case 'When-Marnie-Was-There':
+            break;
 
         default:
-            displayCharacters(films)
             break;
     }
 
