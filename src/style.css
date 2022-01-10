@@ -1,17 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Rampart+One&family=Yaldevi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Rampart+One&family=Yaldevi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Merriweather&family=Montserrat&family=Sacramento&display=swap");
 
-#footer-inicio {
-  font-family: 'Yaldevi', sans-serif;
-  font-size: 25px;
+body {
+  background-image: url(img/backgroundeditado.png);
+  background-size: 1366px 768px;
+}
+
+.logo-grande {
+  font-family: "Berkshire Swash";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 144px;
+  line-height: 179px;
+  color: #FFA260;
+  text-align: center;
+  -webkit-text-stroke: 1px rgb(46, 28, 0);
+}
+
+.boton-entrar {
+  width: 331px;
+  opacity: 70%;
+}
+
+.boton-entrar:hover {
+  opacity: 100%;
+}
+
+.footer-inicio {
+  font-family: "Yaldevi", sans-serif;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: auto
   bottom: 0;
-}
-
-body {
-  background-image: url(img/background.jpg);
-  background-size: 1366px 768px;
-  mix-blend-mode: luminosity (70%);
 }

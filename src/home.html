@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ghiblipedia</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <header id="logo-grande">GHIBLIPEDIA</header>
-    <main>
-        <button id="boton-entrar"></button>
-    </main>
-    <footer id="footer-inicio">Página creada por Teresa González y Javiera Munita, proyecto Data Lovers, Laboratoria</footer>
-</body>
+  </head>
+  <body>
+    <header>Characters</header>
+    <br>
+    <select name="ByFilm" id="charactersByFilm">
+      <option value="Every-movie">Every movie</option>
+      <option value="Castle-in-the-Sky">Castle in the Sky</option>
+      <option value="From-Up-on-Poppy-Hill">From Up on Poppy Hill</option>
+      <option value="Grave-of-the-Fireflies">Grave of the Fireflies</option>
+      <option value="Howls-Moving-Castle">Howl's Moving Castle</option>
+      <option value="Kikis-Delivery-Service">Kiki's Delivery Service</option>
+      <option value="My-Neighbor-Totoro">My Neighbor Totoro</option>
+      <option value="My-Neighbors-the-Yamadas">My Neighbors the Yamadas</option>
+      <option value="Only-Yesterday">Only Yesterday</option>
+      <option value="Pom-Poko">Pom Poko</option>
+      <option value="Ponyo-on-the-Cliff-by-the-Sea">Ponyo on the Cliff by the Sea</option>
+      <option value="Porco-Rosso">Porco Rosso</option>
+      <option value="Princess-Mononoke">Princess Mononoke</option>
+      <option value="Spirited-Away">Spirited Away</option>
+      <option value="Tales-from-Earthsea">Tales from Earthsea</option>
+      <option value="The-Cat-Returns">The Cat Returns</option>
+      <option value="The-Secret-World-of-Arrietty">The Secret World of Arrietty</option>
+      <option value="The-Tale-of-the-Princess-Kaguya">The Tale of the Princess Kaguya</option>
+      <option value="The-Wind-Rises">The Wind Rises</option>
+      <option value="When-Marnie-Was-There">When Marnie Was There</option>
+      <option value="Whisper-of-the-Heart">Whisper of the Heart</option>
+    </select>
+    <br>
+    <div id="charContainer"> </div>
+
+    <div id="root"></div>
+
+    <footer>Ghiblipedia</footer>
+
+    <script src="main.js" type="module"></script>
+  </body>
 </html>
