@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Rampart+One&family=Yaldevi&display=swap');
+
+#footer-inicio {
+  font-family: 'Yaldevi', sans-serif;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  bottom: 0;
+}
+
+body {
+  background-image: url(img/background.jpg);
+  background-size: 1366px 768px;
+  mix-blend-mode: luminosity (70%);
+}

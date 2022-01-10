@@ -1,4 +1,4 @@
-import { characterFilterMovie } from './data.js';
+import {characterFilterMovie} from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -15,25 +15,25 @@ const characterImage = (characterImg, name) => {
     <h5>${name}</h5>
     <img class="charimg" src="${characterImg}">
     </div>`;
-}; 
+};
 
 
 const displayCharacters = () => {
     for (let i = 0; i < films.length; i++) {
-    let characters = films[i].people;
-    for (let j = 0; j < characters.length; j++) {
-        charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
-    } 
-}};
+        let characters = films[i].people;
+        for (let j = 0; j < characters.length; j++) {
+            charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+        }
+    }
+};
 
 // Declarando variables para select de personajes.
 const charByFilm = document.getElementById("charactersByFilm")
 
-//Que la función de filtrado se active al interactuar con el select.
+// Que la función de filtrado se active al interactuar con el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
-        case 'Every-movie':
-            displayCharacters(films)
+        case 'Every-movie': displayCharacters(films)
             console.log("Caso 0");
             break;
         case 'Castle-in-the-Sky':
@@ -42,13 +42,11 @@ charByFilm.addEventListener('change', () => {
             break;
         case 'From-Up-on-Poppy-Hill':
             console.log("Caso 2");
-            for (let i = 0; i < films[i].title.length; i++) {
-                let characters = films[i].people;
+                let characters = films[1].people;
                 for (let j = 0; j < characters.length; j++) {
                     console.log(characters[j])
                     charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
-                } 
-            }
+                }
             break;
         case 'Grave-of-the-Fireflies':
             console.log("Caso 3");
@@ -90,16 +88,15 @@ charByFilm.addEventListener('change', () => {
         case 'Whisper-of-the-Heart':
             break;
 
-        default:
-            displayCharacters(films)
+        default: displayCharacters(films)
             break;
     }
 
-} );
+});
 
 
 console.log(films, data);
 
 
-//let directors = films[i].director;
-//let characterImg = characters[i].img
+// let directors = films[i].director;
+// let characterImg = characters[i].img
