@@ -1,4 +1,4 @@
-import { characterFilterMovie } from './data.js';
+import {characterFilterMovie} from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -15,21 +15,22 @@ const characterImage = (characterImg, name) => {
     <h5>${name}</h5>
     <img class="charimg" src="${characterImg}">
     </div>`;
-}; 
+};
 
 
 const displayCharacters = () => {
     for (let i = 0; i < films.length; i++) {
-    let characters = films[i].people;
-    for (let j = 0; j < characters.length; j++) {
-        charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
-    } 
-}};
+        let characters = films[i].people;
+        for (let j = 0; j < characters.length; j++) {
+            charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+        }
+    }
+};
 
 // Declarando variables para select de personajes.
 const charByFilm = document.getElementById("charactersByFilm")
 
-//Que la función de filtrado se active al interactuar con el select.
+// Que la función de filtrado se active al interactuar con el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
         case 'Every-movie':
@@ -89,11 +90,11 @@ charByFilm.addEventListener('change', () => {
             break;
     }
 
-} );
+});
 
 
 console.log(films, data);
 
 
-//let directors = films[i].director;
-//let characterImg = characters[i].img
+// let directors = films[i].director;
+// let characterImg = characters[i].img
