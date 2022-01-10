@@ -1,30 +1,30 @@
-import { charFilterMovie } from './data.js';
+import { characterFilterMovie } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
 
 // Accediendo a la información de películas.
 const films = data.films
-const charName = films[0].people[0].name
 
 // Que se muestren las imagenes de personajes.
 const charContainer = document.getElementById("charContainer");
 
-const charImage = (films) => {
+const characterImage = (characterImg, name) => {
     return `
     <div>
-    <h5>${charName}</h5>
-    <img class="charimg" src="${films}">
+    <h5>${name}</h5>
+    <img class="charimg" src="${characterImg}">
     </div>`;
 }; 
 
 
-for (let i = 0; i < films.length; i++) {
+const displayCharacters = () => {
+    for (let i = 0; i < films.length; i++) {
     let characters = films[i].people;
     for (let j = 0; j < characters.length; j++) {
-        charContainer.innerHTML += charImage(characters[j].img);
+        charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
     } 
-}
+}};
 
 // Declarando variables para select de personajes.
 const charByFilm = document.getElementById("charactersByFilm")
@@ -32,56 +32,66 @@ const charByFilm = document.getElementById("charactersByFilm")
 //Que la función de filtrado se active al interactuar con el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
-        case '0':
+        case 'Every-movie':
+            displayCharacters(films)
             console.log("Caso 0");
             break;
-        case '1':
+        case 'Castle-in-the-Sky':
             console.log("Caso 1");
+            displayCharacters(characterFilterMovie(films, "Castle in the Sky"))
             break;
-        case '2':
+        case 'From-Up-on-Poppy-Hill':
             console.log("Caso 2");
+            for (let i = 0; i < films[i].title.length; i++) {
+                let characters = films[i].people;
+                for (let j = 0; j < characters.length; j++) {
+                    console.log(characters[j])
+                    charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+                } 
+            }
             break;
-        case '3':
+        case 'Grave-of-the-Fireflies':
             console.log("Caso 3");
             break;
-        case '4':
+        case 'Howls-Moving-Castle':
             console.log("Caso 4");
             break;
-        case '5':
+        case '"Kikis-Delivery-Service"':
             console.log("Caso 5");
             break;
-        case '6':
+        case 'My-Neighbor-Totoro':
             break;
-        case '7':
+        case 'My-Neighbors-the-Yamadas"':
             break;
-        case '8':
+        case 'Only-Yesterday':
             break;
-        case '9':
+        case 'Pom-Poko':
             break;
-        case '10':
+        case 'Ponyo-on-the-Cliff-by-the-Sea':
             break;
-        case '11':
+        case 'Porco-Rosso':
             break;
-        case '12':
+        case 'Princess-Mononoke':
             break;
-        case '13':
+        case 'Spirited-Away':
             break;
-        case '14':
+        case 'Tales-from-Earthsea':
             break;
-        case '15':
+        case 'The-Cat-Returns':
             break;
-        case '16':
+        case 'The-Secret-World-of-Arrietty':
             break;
-        case '17':
+        case 'The-Tale-of-the-Princess-Kaguya':
             break;
-        case '18':
+        case 'The-Wind-Rises':
             break;
-        case '19':
+        case 'When-Marnie-Was-There':
             break;
-        case '20':
+        case 'Whisper-of-the-Heart':
             break;
 
         default:
+            displayCharacters(films)
             break;
     }
 
