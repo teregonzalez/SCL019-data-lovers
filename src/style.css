@@ -14,12 +14,20 @@ body {
   line-height: 179px;
   color: #FFA260;
   text-align: center;
-  -webkit-text-stroke: 1px rgb(46, 28, 0);
+  text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
+}
+
+.container-logo {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .boton-entrar {
   width: 331px;
   opacity: 70%;
+  position: center;
 }
 
 .boton-entrar:hover {
@@ -31,7 +39,7 @@ body {
   font-size: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: auto
+  align-items: flex-end;
+  margin: auto;
   bottom: 0;
 }
