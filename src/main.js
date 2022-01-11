@@ -32,21 +32,19 @@ const charByFilm = document.getElementById("charactersByFilm")
 // Que la función de filtrado se active al interactuar con el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
-        case 'Every-movie':
-            displayCharacters(films);
+        case 'Every-movie': displayCharacters(films);
             break;
         case 'Castle-in-the-Sky':
             let characters0 = films[0].people;
-                for (let j = 0; j < characters0.length; j++) {
-                    charContainer.innerHTML += characterImage(characters0[j].img, characters0[j].name);
-                } 
+            for (let j = 0; j < characters0.length; j++) {
+                charContainer.innerHTML += characterImage(characters0[j].img, characters0[j].name);
+            }
             break;
         case 'My-Neighbor-Totoro':
             break;
         case 'Kikis-Delivery-Service':
             break;
-        case 'Grave-of-the-Fireflies':
-            displayCharacters(characterFilterMovie(films, "Grave of the Fireflies"));
+        case 'Grave-of-the-Fireflies': displayCharacters(characterFilterMovie(films, "Grave of the Fireflies"));
             break;
         case 'Only-Yesterday':
             break;
@@ -65,7 +63,7 @@ charByFilm.addEventListener('change', () => {
         case 'The-Cat-Returns':
             break;
         case 'Howls-Moving-Castle':
-            break; 
+            break;
         case 'Tales-from-Earthsea':
             break;
         case 'Ponyo-on-the-Cliff-by-the-Sea':
@@ -74,12 +72,12 @@ charByFilm.addEventListener('change', () => {
             break;
         case 'From-Up-on-Poppy-Hill':
             let characters = films[16].people;
-                for (let j = 0; j < characters.length; j++) {
-                    charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
-                } 
+            for (let j = 0; j < characters.length; j++) {
+                charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+            }
             break;
         case 'The-Wind-Rises':
-            break;     
+            break;
         case 'The-Tale-of-the-Princess-Kaguya':
             break;
         case 'When-Marnie-Was-There':

@@ -5,9 +5,6 @@ export const characterFilterMovie = (films, filmTitle) => {
 
 //let movieCharacters = films.filter(title => title == "Grave of the Fireflies")
 
-
-
-
 export const anotherExample = () => {
   return 'OMG';
 };
