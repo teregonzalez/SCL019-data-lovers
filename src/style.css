@@ -4,6 +4,7 @@
 body {
   background-image: url(img/backgroundeditado.png);
   background-size: 1366px 768px;
+  text-align: center;
 }
 
 .logo-grande {
