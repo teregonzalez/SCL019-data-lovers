@@ -37,49 +37,67 @@ window.addEventListener('load', () => displayCharacters(films) )
 // Que la función de filtrado se active al hacer un cambio en el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
-        case 'Every-movie':
-            displayCharacters(films);
+        case 'Every-movie': displayCharacters(films);
             break;
         case 'Castle-in-the-Sky':
+            displayCharacters(movieCharacters(films, "Castle in the Sky"));
             break;
         case 'My-Neighbor-Totoro':
+            displayCharacters(movieCharacters(films, "My Neighbor Totoro"));
             break;
         case 'Kikis-Delivery-Service':
+            displayCharacters(movieCharacters(films, "Kiki's Delivery Service"));
             break;
         case 'Grave-of-the-Fireflies':
             displayCharacters(movieCharacters(films, "Grave of the Fireflies"));
             break;
         case 'Only-Yesterday':
+            displayCharacters(movieCharacters(films, "Only Yesterday"));
             break;
         case 'Porco-Rosso':
+            displayCharacters(movieCharacters(films, "Porco Rosso"));
             break;
         case 'Pom-Poko':
+            displayCharacters(movieCharacters(films, "Pom Poko"));
             break;
         case 'Whisper-of-the-Heart':
+            displayCharacters(movieCharacters(films, "Whisper of the Heart"));
             break;
         case 'Princess-Mononoke':
+            displayCharacters(movieCharacters(films, "Princess Mononoke"));
             break;
         case 'My-Neighbors-the-Yamadas"':
+            displayCharacters(movieCharacters(films, "My Neighbors the Yamadas"));
             break;
         case 'Spirited-Away':
+            displayCharacters(movieCharacters(films, "Spirited Away"));
             break;
         case 'The-Cat-Returns':
+            displayCharacters(movieCharacters(films, "The Cat Returns"));
             break;
         case 'Howls-Moving-Castle':
-            break; 
+            displayCharacters(movieCharacters(films, "Howl's Moving Castle"));
+            break;
         case 'Tales-from-Earthsea':
+            displayCharacters(movieCharacters(films, "Tales from Earthsea"));
             break;
         case 'Ponyo-on-the-Cliff-by-the-Sea':
+            displayCharacters(movieCharacters(films, "Ponyo on the Cliff by the Sea"));
             break;
         case 'The-Secret-World-of-Arrietty':
+            displayCharacters(movieCharacters(films, "The Secret World of Arrietty"));
             break;
         case 'From-Up-on-Poppy-Hill':
+            displayCharacters(movieCharacters(films, "From Up on Poppy Hill"));
             break;
         case 'The-Wind-Rises':
-            break;     
+            displayCharacters(movieCharacters(films, "The Wind Rises"));
+            break;
         case 'The-Tale-of-the-Princess-Kaguya':
+            displayCharacters(movieCharacters(films, "The Tale of the Princess Kaguya"));
             break;
         case 'When-Marnie-Was-There':
+            displayCharacters(movieCharacters(films, "When Marnie Was There"));
             break;
         default:
             break;

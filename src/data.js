@@ -5,9 +5,6 @@ export const movieCharacters = (films, filmTitle) => {
 };
 
 
-
-
-
 export const anotherExample = () => {
   return 'OMG';
 };
