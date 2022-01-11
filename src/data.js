@@ -1,9 +1,9 @@
-export const characterFilterMovie = (films, filmTitle) => {
-  const movieCharacters = films.filter (title => films.title == filmTitle);
+//Función que filtra los personajes por película.
+export const movieCharacters = (films, filmTitle) => {
+  const movieCharacters = films.filter (film => film.title == filmTitle);
   return movieCharacters;
 };
 
-//let movieCharacters = films.filter(title => title == "Grave of the Fireflies")
 
 
 
