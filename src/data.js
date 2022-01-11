@@ -4,6 +4,10 @@ export const movieCharacters = (films, filmTitle) => {
   return movieCharacters;
 };
 
+export const charactersGender = (films, gender) => {
+  const peopleGender = films.filter (film => film.gender == gender);
+  return peopleGender;
+};
 
 export const anotherExample = () => {
   return 'OMG';

@@ -1,4 +1,4 @@
-import {movieCharacters} from './data.js';
+import {charactersGender, movieCharacters} from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -7,34 +7,35 @@ import data from './data/ghibli/ghibli.js';
 const films = data.films
 
 //Contenedor que muestra imagenes de personajes.
-const charContainer = document.getElementById("charContainer");
+const characterContainer = document.getElementById("characterContainer");
 
 const characterImage = (characterImg, name) => {
     return `
-    <div>
-    <h5>${name}</h5>
-    <img class="charimg" src="${characterImg}">
+    <div class="contenedor-imagen-personaje">
+    <h5 class="nombre-personaje">${name}</h5>
+    <img class="img-personaje" src="${characterImg}">
     </div>`;
 };
 
 //Función de display que vacía el contenedor y luego lo llena con imagen y nombre de personajes.
 const displayCharacters = (films) => {
-    charContainer.innerHTML = ""
+    characterContainer.innerHTML = ""
     for (let i = 0; i < films.length; i++) {
         let characters = films[i].people;
         for (let j = 0; j < characters.length; j++) {
-            charContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+            characterContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
         }
     }
 };
 
-//Declarando variable para select de personajes.
+//Declarando variable para selects de personajes.
 const charByFilm = document.getElementById("charactersByFilm")
+const charactersByGender = document.getElementById("charactersByGender")
 
 //Que todos los personajes se muestren al cargan la página.
 window.addEventListener('load', () => displayCharacters(films) )
 
-// Que la función de filtrado se active al hacer un cambio en el select.
+//Que la función de filtrado se active al hacer un cambio en el select.
 charByFilm.addEventListener('change', () => {
     switch (charByFilm.value) {
         case 'Every-movie': displayCharacters(films);
@@ -66,7 +67,7 @@ charByFilm.addEventListener('change', () => {
         case 'Princess-Mononoke':
             displayCharacters(movieCharacters(films, "Princess Mononoke"));
             break;
-        case 'My-Neighbors-the-Yamadas"':
+        case 'My-Neighbors-the-Yamadas':
             displayCharacters(movieCharacters(films, "My Neighbors the Yamadas"));
             break;
         case 'Spirited-Away':
@@ -102,6 +103,27 @@ charByFilm.addEventListener('change', () => {
         default:
             break;
     }
+
+    //Función de filtrado de personajes por género.
+    charactersByGender.addEventListener ('change', () => {
+        switch (charactersByGender.value) {
+            case 'All-genders':
+                displayCharacters(films);
+                break;
+            case 'Female':
+                displayCharacters(charactersGender(films, "Female"));
+            break;
+            case 'Male':
+                displayCharacters(charactersGender(films, "Male"));
+                break;
+            case 'Unknown':
+                displayCharacters(charactersGender(films, "Unknown", "NA"));
+                break;
+            default:
+                break;
+        }
+    }
+    )
 
 });
 

@@ -7,13 +7,15 @@ body {
   text-align: center;
 }
 
+/*PÁGINA DE INICIO*/
+
 .logo-grande {
   font-family: "Berkshire Swash";
   font-style: normal;
   font-weight: normal;
   font-size: 144px;
   line-height: 179px;
-  color: #FFA260;
+  color: #ffa260;
   text-align: center;
   text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
 }
@@ -43,4 +45,79 @@ body {
   align-items: flex-end;
   margin: auto;
   bottom: 0;
+}
+
+/*HOME - PÁGINA DE PERSONAJES*/
+
+.contenedor-personajes {
+  background-color: #cff4ec;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  padding: 40px;
+  width: 60%;
+  margin: auto;
+  justify-content: center;
+}
+
+.contenedor-select-personajes {
+  background-color: #cff4ec;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  height: auto;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+}
+
+.contenedor-imagen-personaje {
+  padding: 20px;
+}
+
+.img-personaje {
+  border-radius: 100px;
+  border: 5px solid #f8fffe;
+}
+.select-personajes {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2a322a;
+  background-color: #f8fffe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 13px;
+}
+
+.nombre-personaje {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 31px;
+  text-align: center;
+  color: #2a322a;
+  background-color: #f8fffe;
+  border-radius: 13px;
+}
+
+.logo-footer {
+  width: 292px;
+  height: 75px;
+  left: 616px;
+  top: 924px;
+
+  font-family: Berkshire Swash;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 75px;
+  color: #f4b065;
+  text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
 }

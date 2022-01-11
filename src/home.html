@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>Characters</header>
+    <header class="header-menu">Characters</header>
     <br>
-    <select name="ByFilm" id="charactersByFilm">
+    <div class="contenedor-select-personajes">
+    <select name="ByFilm" id="charactersByFilm" class="select-personajes">
       <option selected value="Every-movie">Every movie</option>
       <option value="Castle-in-the-Sky">Castle in the Sky</option>
       <option value="From-Up-on-Poppy-Hill">From Up on Poppy Hill</option>
@@ -31,11 +32,25 @@
       <option value="When-Marnie-Was-There">When Marnie Was There</option>
       <option value="Whisper-of-the-Heart">Whisper of the Heart</option>
     </select>
+
+    <select name="characterGender" id="charactersByGender" class="select-personajes">
+      <option value="All-genders">All genders</option>
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+      <option value="Unknown">Unknown</option>
+    </select>
+
+    <select name="charactersName" id="charactersAtoZ" class="select-personajes">
+      <option value="All-names">Name</option>
+      <option value="A-Z">A-Z</option>
+      <option value="Z-A">Z-A</option>
+    </select>
+   </div>
     <br>
-    <div id="charContainer"> </div>
+    <div id="characterContainer" class="contenedor-personajes"> </div>
     <div id="root"></div>
 
-    <footer>Ghiblipedia</footer>
+    <footer class="logo-footer">Ghiblipedia</footer>
 
     <script src="main.js" type="module"></script>
   </body>
