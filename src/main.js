@@ -17,7 +17,6 @@ const characterImage = (characterImg, name) => {
     </div>`;
 };
 
-
 const displayCharacters = () => {
     for (let i = 0; i < films.length; i++) {
         let characters = films[i].people;
@@ -43,11 +42,11 @@ charByFilm.addEventListener('change', () => {
                 } 
             break;
         case 'My-Neighbor-Totoro':
-            displayCharacters(characterFilterMovie(films, "My Neighbor Totoro"));
             break;
         case 'Kikis-Delivery-Service':
             break;
         case 'Grave-of-the-Fireflies':
+            displayCharacters(characterFilterMovie(films, "Grave of the Fireflies"));
             break;
         case 'Only-Yesterday':
             break;
