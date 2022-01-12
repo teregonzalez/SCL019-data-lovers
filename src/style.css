@@ -45,9 +45,95 @@ body {
   bottom: 0;
 }
 
-nav{
+/*BOTONES NAVBAR*/
+
+.btn-home {
+  background: #ffd3b4;
+  border-radius: 12px;
+  font-family: "Berkshire Swash";
+  color: 4d423f;
+  font-size: 2rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-home:hover {
+  background: #ffffff;
+}
+
+.btn-movies {
+  background: #d5ecc2;
+  border-radius: 12px;
+  font-family: "Berkshire Swash";
+  color: 4d423f;
+  font-size: 2rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-movies:hover {
+  background-color: #ffffff;
+}
+
+.btn-characters {
+  background: #cff4ec;
+  border-radius: 12px;
+  font-family: "Berkshire Swash";
+  color: 4d423f;
+  font-size: 2rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-characters:hover {
+  background-color: #ffffff;
+}
+
+.btn-directors {
+  background: #fff5eb;
+  border-radius: 12px;
+  font-family: "Berkshire Swash";
+  color: 4d423f;
+  font-size: 2rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-directors:hover {
+  background: #ffffff;
+}
+
+.btn-facts {
+  background: #ffbebb;
+  border-radius: 12px;
+  font-family: "Berkshire Swash";
+  color: 4d423f;
+  font-size: 2rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-facts:hover {
+  background: #ffffff;
+}
+
+.navbar {
+  margin: 70px auto 30px;
+}
+
+/*HOME - PÁGINA DE PERSONAJES*/
+
+.contenedor-personajes {
+  background-color: #cff4ec;
   display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  padding: 40px;
+  width: 60%;
+  margin: 0 auto 70px;
   justify-content: center;
+  box-shadow: 8px 8px 0px rgb(73, 170, 163);
+  border: 3px solid #24756f;
 }
 
 .contenedor-select-personajes {
@@ -59,6 +145,8 @@ nav{
   width: 60%;
   padding: 20px;
   margin: auto;
+  box-shadow: 8px 8px 0px rgb(73, 170, 163);
+  border: 3px solid #24756f;
 }
 
 .contenedor-imagen-personaje {
@@ -107,12 +195,9 @@ nav{
   border: 3px solid #24756f;
 }
 
-.logo-footer {
+.footer-container {
   width: 292px;
   height: 75px;
-  left: 616px;
-  top: 924px;
-
   font-family: Berkshire Swash;
   font-style: normal;
   font-weight: normal;
@@ -120,4 +205,7 @@ nav{
   line-height: 75px;
   color: #f4b065;
   text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
+  justify-content: center;
+  display: flex;
+  margin: 0 auto 70px;
 }

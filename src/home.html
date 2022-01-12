@@ -6,7 +6,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header-menu">Characters</header>
+    <header class="header-menu">
+      <div class="navbar">
+        <button class="btn-home">Home</button> 
+        <button class="btn-movies">Movies</button> 
+        <button class="btn-characters">Characters</button> 
+        <button class="btn-directors">Directos</button> 
+        <button class="btn-facts">Fun Facts</button> 
+      </div> 
+    </header>
     <br>
     <div class="contenedor-select-personajes">
     <select name="ByFilm" id="charactersByFilm" class="select-personajes">
@@ -50,7 +58,7 @@
     <div id="characterContainer" class="contenedor-personajes"> </div>
     <div id="root"></div>
 
-    <footer class="logo-footer">Ghiblipedia</footer>
+    <div class="footer-container">Ghiblipedia</div>
 
     <script src="main.js" type="module"></script>
   </body>
