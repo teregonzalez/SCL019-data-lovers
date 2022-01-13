@@ -1,4 +1,4 @@
-import {charactersGender, movieCharacters} from './data.js';
+import {charactersFilter, movieCharacters, } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -31,6 +31,7 @@ const displayCharacters = (films) => {
 //Declarando variable para selects de personajes.
 const charByFilm = document.getElementById("charactersByFilm")
 const charactersByGender = document.getElementById("charactersByGender")
+const charactersByName = document.getElementById("charactersAtoZ")
 
 //Que todos los personajes se muestren al cargan la página.
 window.addEventListener('load', () => displayCharacters(films) )
@@ -103,6 +104,8 @@ charByFilm.addEventListener('change', () => {
         default:
             break;
     }
+});
+
 
     //Función de filtrado de personajes por género.
     charactersByGender.addEventListener ('change', () => {
@@ -111,21 +114,36 @@ charByFilm.addEventListener('change', () => {
                 displayCharacters(films);
                 break;
             case 'Female':
-                displayCharacters(charactersGender(films, "Female"));
+                displayCharacters(charactersFilter(films.includes('gender'), "Female"));
             break;
             case 'Male':
-                displayCharacters(charactersGender(films, "Male"));
+                displayCharacters(charactersFilter(films, "Male"));
                 break;
             case 'Unknown':
-                displayCharacters(charactersGender(films, "Unknown", "NA"));
+                displayCharacters(charactersFilter(films, "Unknown"));
                 break;
             default:
                 break;
         }
-    }
-    )
+    });
 
-});
+ 
+    //Función de orden alfabético por nombre
+    charactersByName.addEventListener ('change', () => {
+        switch (charactersByName.value) {
+            case 'All-names':
+                displayCharacters(films);
+                break;
+            case 'A-Z':
+                break;
+            case 'Z-A':
+                break;
+        
+            default:
+                break;
+        }
+    })
+
 
 
 console.log(films, data);
