@@ -111,7 +111,7 @@ charByFilm.addEventListener('change', () => {
                 displayCharacters(films);
                 break;
             case 'Female':
-                displayCharacters(charactersGender(films, "Female"));
+                displayCharacters(charactersGender("Female"));
             break;
             case 'Male':
                 displayCharacters(charactersGender(films, "Male"));
