@@ -4,11 +4,17 @@ export const movieCharacters = (films, filmTitle) => {
   return movieCharacters;
 };
 
-export const charactersGender = (films, gender) => {
-  const peopleGender = films.filter (film => film.gender == gender);
-  return peopleGender;
-};
+//Función de filtrado general
+export const charactersFilter = (data, condition) => {
+  const peopleProperty = data.filter (element => element.condition == condition);
+  return peopleProperty;
+}; 
 
-export const anotherExample = () => {
+//buscar-agregar .include, for in, for of
+
+/*export const charactersName = films.sort((a-z) => {
+  return a.name - b.name});
+
+/*export const anotherExample = () => {
   return 'OMG';
-};
+};*/
