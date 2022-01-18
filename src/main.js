@@ -1,18 +1,59 @@
-import {charactersFilter, movieCharacters, } from './data.js';
+import {charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
 
 //Accediendo a la información de películas.
 const films = data.films
+const personajes = Object.entries(films.map(films => films.people))
+console.log(personajes)
+
+//HTML Dinámico de las distintas páginas
+const moviesPage = document.getElementById("moviesPage")
+const moviesContainer = document.getElementById("moviesContainer")
+const btnMovies = document.getElementById("buttonMovies")
+
+const movies = (title, poster) => {
+    return `
+    <div class="contenedor-select-peliculas">
+    <select name="ByDirector" id="movieByDirector" class="select-peliculas">
+      <option selected value="Every-movie">Every movie</option>
+      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+      <option value="Isao Takahata">Isao Takahata</option>
+      <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+      <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+      <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+      <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+    </select>
+    </div>
+    <br>
+    <div>
+    <h5>${title}</h5>
+    <img src="${poster}"> 
+    </div>
+   
+    `;
+};
+
+const displayMovies = (films) => {
+    moviesContainer.innerHTML = ""
+    for (let i = 0; i < films.length; i++) {
+        moviesContainer.innerHTML += movies(films[i].title, films[i].poster);
+        }
+    };
+
+    btnMovies.addEventListener('click', () => {
+        displayMovies(films)
+    });
 
 //Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
 
-const characterImage = (characterImg, name) => {
+const characterImage = (characterImg, name, gender) => {
     return `
     <div class="contenedor-imagen-personaje">
     <h5 class="nombre-personaje">${name}</h5>
+    <h4>${gender}<h4>
     <img class="img-personaje" src="${characterImg}">
     </div>`;
 };
@@ -23,9 +64,15 @@ const displayCharacters = (films) => {
     for (let i = 0; i < films.length; i++) {
         let characters = films[i].people;
         for (let j = 0; j < characters.length; j++) {
-            characterContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
+            characterContainer.innerHTML += characterImage(characters[j].img, characters[j].name, characters[j].gender);
         }
     }
+};
+
+const filtroGenero = (personajes) => {
+    for (let i = 0; i < personajes.lenght; i++) {
+        let generoPersonaje = personajes[i].gender; 
+    }         
 };
 
 //Declarando variable para selects de personajes.
@@ -108,19 +155,19 @@ charByFilm.addEventListener('change', () => {
 
 
     //Función de filtrado de personajes por género.
+
     charactersByGender.addEventListener ('change', () => {
         switch (charactersByGender.value) {
             case 'All-genders':
-                displayCharacters(films);
+                displayCharacters(filtroGenero(personajes));
                 break;
             case 'Female':
-                displayCharacters(charactersFilter(films.includes('gender'), "Female"));
+                displayCharacters(charactersFilter(personajes, "Female"));
             break;
             case 'Male':
-                displayCharacters(charactersFilter(films, "Male"));
                 break;
             case 'Unknown':
-                displayCharacters(charactersFilter(films, "Unknown"));
+                personajesXgenero(personajesXpelícula, "Unknown");
                 break;
             default:
                 break;
@@ -129,22 +176,22 @@ charByFilm.addEventListener('change', () => {
 
  
     //Función de orden alfabético por nombre
-    charactersByName.addEventListener ('change', () => {
-        switch (charactersByName.value) {
-            case 'All-names':
-                displayCharacters(films);
-                break;
-            case 'A-Z':
-                break;
-            case 'Z-A':
-                break;
-        
-            default:
-                break;
-        }
+    charactersByName.addEventListener ('change', (event) => {
+      const alphabeticalOrder = event.target.value;
+       if (alphabeticalOrder === 'A-Z') {
+         charactersNameAZ(displayCharacters(films));
+       }
     })
 
 
 
-console.log(films, data);
+/*const personajesXgenero = (data, propiedad) => {
+   const genero = data.filter (element => element.gender == propiedad)
+   return genero;
+}
+
+const people = () => {for (let people in films) {
+    let personajes = Object.entries(films[people]);
+}};
+*/
 

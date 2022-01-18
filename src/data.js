@@ -6,15 +6,26 @@ export const movieCharacters = (films, filmTitle) => {
 
 //Función de filtrado general
 export const charactersFilter = (data, condition) => {
-  const peopleProperty = data.filter (element => element.condition == condition);
+  const peopleProperty = data.filter (element => element.gender == condition);
   return peopleProperty;
 }; 
 
-//buscar-agregar .include, for in, for of
+/*export const charactersFilter = (data, condition) => {
+  const peopleProperty = data.filter (element => element.includes(condition) == condition);
+  return peopleProperty;
+}; */
 
-/*export const charactersName = films.sort((a-z) => {
-  return a.name - b.name});
+//Función de orden alfabético ascendente y descendente
+export const charactersNameAZ = (data) => {
+  data.sort((a, b) => {
+  return a.name > b.name ? 1: -1;}
+  )};
 
-/*export const anotherExample = () => {
-  return 'OMG';
-};*/
+export const charactersNameZA = (data) => {
+  data.sort((a, b) => {
+  return a.name < b.name ? 1: -1;}
+)};
+
+
+
+
