@@ -121,7 +121,13 @@ body {
   margin: 70px auto 30px;
 }
 
-/*HOME - PÁGINA DE PERSONAJES*/
+/*PÁGINAS*/
+
+.page-movies {
+  display: none;
+}
+
+/*PÁGINAS - INNER HTML*/
 
 .contenedor-personajes {
   background-color: #cff4ec;
@@ -134,6 +140,19 @@ body {
   justify-content: center;
   box-shadow: 8px 8px 0px rgb(73, 170, 163);
   border: 3px solid #24756f;
+}
+
+.contenedor-peliculas {
+  background-color: #d5ecc2;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  padding: 40px;
+  width: 60%;
+  margin: 0 auto 70px;
+  justify-content: center;
+  box-shadow: 8px 8px 0px rgb(94, 156, 65);
+  border: 3px solid #545f4b;
 }
 
 .contenedor-select-personajes {
@@ -149,7 +168,24 @@ body {
   border: 3px solid #24756f;
 }
 
+.contenedor-select-peliculas {
+  background-color: #d5ecc2;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  height: auto;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 8px 8px 0px rgb(94, 156, 65);
+  border: 3px solid #545f4b;
+}
+
 .contenedor-imagen-personaje {
+  padding: 20px;
+}
+
+.contenedor-imagen-pelicula {
   padding: 20px;
 }
 
@@ -162,6 +198,16 @@ body {
 }
 
 .img-personaje:hover {
+  border: 5px solid #df9037;
+  opacity: 80%;
+}
+
+.img-pelicula {
+  border-radius: 20px;
+  border: 5px solid #24756f;
+}
+
+.img-pelicula:hover {
   border: 5px solid #df9037;
   opacity: 80%;
 }
@@ -182,7 +228,36 @@ body {
   border-radius: 13px;
 }
 
+.select-peliculas {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2a322a;
+  background-color: #f8fffe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 13px;
+}
+
 .nombre-personaje {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 31px;
+  text-align: center;
+  color: #2a322a;
+  background-color: #f8fffe;
+  border-radius: 13px;
+  border: 3px solid #24756f;
+}
+
+.nombre-pelicula {
   font-family: Merriweather;
   font-style: normal;
   font-weight: bold;

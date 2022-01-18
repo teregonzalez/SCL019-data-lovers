@@ -8,34 +8,23 @@ const films = data.films
 const personajes = Object.entries(films.map(films => films.people))
 console.log(personajes)
 
-//HTML Dinámico de las distintas páginas
+//HTML de la página de películas
+const btnMovies = document.getElementById("buttonMovies")
+const pagesMainContainer = document.getElementById("contenedorPaginas")
 const moviesPage = document.getElementById("moviesPage")
 const moviesContainer = document.getElementById("moviesContainer")
-const btnMovies = document.getElementById("buttonMovies")
 
 const movies = (title, poster) => {
     return `
-    <div class="contenedor-select-peliculas">
-    <select name="ByDirector" id="movieByDirector" class="select-peliculas">
-      <option selected value="Every-movie">Every movie</option>
-      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-      <option value="Isao Takahata">Isao Takahata</option>
-      <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-      <option value="Hiroyuki Morita">Hiroyuki Morita</option>
-      <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-      <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-    </select>
+    <div class="contenedor-imagen-pelicula">
+    <h5 class="nombre-pelicula">${title}</h5>
+    <img class="img-pelicula" src="${poster}"> 
     </div>
-    <br>
-    <div>
-    <h5>${title}</h5>
-    <img src="${poster}"> 
-    </div>
-   
     `;
 };
 
 const displayMovies = (films) => {
+    moviesPage.style.display = "block";
     moviesContainer.innerHTML = ""
     for (let i = 0; i < films.length; i++) {
         moviesContainer.innerHTML += movies(films[i].title, films[i].poster);

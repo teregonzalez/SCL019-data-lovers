@@ -16,56 +16,91 @@
       </div> 
     </header>
 
-    <div id="homePage" class="page-home"> </div>
-    <div id="moviesPage" class="page-movies"> </div>
-    <div id="charactersPage" class="characters-page"> </div>
+    <main class="contenedor-paginas" id="contenedorPaginas">
+      <div id="homePage" class="page-home"> </div>
+
+      <div id="moviesPage" class="page-movies"> 
+       <div class="contenedor-select-peliculas">
+        <select name="ByDirector" id="movieByDirector" class="select-peliculas">
+          <option selected value="All-directors">Directors</option>
+          <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+          <option value="Isao Takahata">Isao Takahata</option>
+          <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+          <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+          <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+          <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+        </select>
+
+        <select name="" id="" class="select-peliculas">
+          <option value="Year">By year</option>
+        </select>
+
+        <select name="" id="" class="select-peliculas">
+          <option value="Title">By title</option>
+        </select>
+
+       </div>
+        <br>
+        <div id="moviesContainer" class="contenedor-peliculas"> </div>
+        <br>
+       </div>
+
+    <div id="charactersPage" class="characters-page"> 
+      <div class="contenedor-select-personajes">
+      <select name="ByFilm" id="charactersByFilm" class="select-personajes">
+        <option selected value="Every-movie">Every movie</option>
+        <option value="Castle-in-the-Sky">Castle in the Sky</option>
+        <option value="From-Up-on-Poppy-Hill">From Up on Poppy Hill</option>
+        <option value="Grave-of-the-Fireflies">Grave of the Fireflies</option>
+        <option value="Howls-Moving-Castle">Howl's Moving Castle</option>
+        <option value="Kikis-Delivery-Service">Kiki's Delivery Service</option>
+        <option value="My-Neighbor-Totoro">My Neighbor Totoro</option>
+        <option value="My-Neighbors-the-Yamadas">My Neighbors the Yamadas</option>
+        <option value="Only-Yesterday">Only Yesterday</option>
+        <option value="Pom-Poko">Pom Poko</option>
+        <option value="Ponyo-on-the-Cliff-by-the-Sea">Ponyo on the Cliff by the Sea</option>
+        <option value="Porco-Rosso">Porco Rosso</option>
+        <option value="Princess-Mononoke">Princess Mononoke</option>
+        <option value="Spirited-Away">Spirited Away</option>
+        <option value="Tales-from-Earthsea">Tales from Earthsea</option>
+        <option value="The-Cat-Returns">The Cat Returns</option>
+        <option value="The-Secret-World-of-Arrietty">The Secret World of Arrietty</option>
+        <option value="The-Tale-of-the-Princess-Kaguya">The Tale of the Princess Kaguya</option>
+        <option value="The-Wind-Rises">The Wind Rises</option>
+        <option value="When-Marnie-Was-There">When Marnie Was There</option>
+        <option value="Whisper-of-the-Heart">Whisper of the Heart</option>
+      </select>
+  
+      <select name="characterGender" id="charactersByGender" class="select-personajes">
+        <option value="All-genders">All genders</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Unknown">Unknown</option>
+      </select>
+  
+      <select name="charactersName" id="charactersAtoZ" class="select-personajes">
+        <option value="All-names">Name</option>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </select>
+     </div>
+      <br>
+      <div id="characterContainer" class="contenedor-personajes"> </div> </div>
+
     <div id="directorsPage" class="directors-page"> </div>
+
     <div id="factsPage" class="facts-page"> </div>
 
-    <br>
-    <div class="contenedor-select-personajes">
-    <select name="ByFilm" id="charactersByFilm" class="select-personajes">
-      <option selected value="Every-movie">Every movie</option>
-      <option value="Castle-in-the-Sky">Castle in the Sky</option>
-      <option value="From-Up-on-Poppy-Hill">From Up on Poppy Hill</option>
-      <option value="Grave-of-the-Fireflies">Grave of the Fireflies</option>
-      <option value="Howls-Moving-Castle">Howl's Moving Castle</option>
-      <option value="Kikis-Delivery-Service">Kiki's Delivery Service</option>
-      <option value="My-Neighbor-Totoro">My Neighbor Totoro</option>
-      <option value="My-Neighbors-the-Yamadas">My Neighbors the Yamadas</option>
-      <option value="Only-Yesterday">Only Yesterday</option>
-      <option value="Pom-Poko">Pom Poko</option>
-      <option value="Ponyo-on-the-Cliff-by-the-Sea">Ponyo on the Cliff by the Sea</option>
-      <option value="Porco-Rosso">Porco Rosso</option>
-      <option value="Princess-Mononoke">Princess Mononoke</option>
-      <option value="Spirited-Away">Spirited Away</option>
-      <option value="Tales-from-Earthsea">Tales from Earthsea</option>
-      <option value="The-Cat-Returns">The Cat Returns</option>
-      <option value="The-Secret-World-of-Arrietty">The Secret World of Arrietty</option>
-      <option value="The-Tale-of-the-Princess-Kaguya">The Tale of the Princess Kaguya</option>
-      <option value="The-Wind-Rises">The Wind Rises</option>
-      <option value="When-Marnie-Was-There">When Marnie Was There</option>
-      <option value="Whisper-of-the-Heart">Whisper of the Heart</option>
-    </select>
-
-    <select name="characterGender" id="charactersByGender" class="select-personajes">
-      <option value="All-genders">All genders</option>
-      <option value="Female">Female</option>
-      <option value="Male">Male</option>
-      <option value="Unknown">Unknown</option>
-    </select>
-
-    <select name="charactersName" id="charactersAtoZ" class="select-personajes">
-      <option value="All-names">Name</option>
-      <option value="A-Z">A-Z</option>
-      <option value="Z-A">Z-A</option>
-    </select>
-   </div>
-    <br>
-    <div id="characterContainer" class="contenedor-personajes"> </div>
-    <div id="moviesContainer" class="contenedor-peliculas"> </div>
+    
+    
+    
+    
     
     <div id="root"></div>
+
+    </main>
+
+    
 
     <div class="footer-container">Ghiblipedia</div>
 
