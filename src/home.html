@@ -8,21 +8,40 @@
   <body>
     <header class="header-menu">
       <div class="navbar">
-        <button class="btn-home">Home</button> 
+        <button class="btn-home" id="buttonHome">Home</button> 
         <button class="btn-movies" id="buttonMovies">Movies</button> 
-        <button class="btn-characters">Characters</button> 
-        <button class="btn-directors">Directors</button> 
-        <button class="btn-facts">Fun Facts</button> 
+        <button class="btn-characters" id="buttonCharacters">Characters</button> 
+        <button class="btn-directors" id="buttonDirectors">Directors</button> 
+        <button class="btn-facts" id="buttonFacts">Fun Facts</button> 
       </div> 
     </header>
 
     <main class="contenedor-paginas" id="contenedorPaginas">
-      <div id="homePage" class="page-home"> </div>
+
+      <div id="homePage" class="page-home">
+        <div class="contenedor-home" id="homeContainer">
+         <p class="home-text">Studio Ghibli, Inc. (スタジオジブリ), is a Japanese animation film studio headquartered in Koganei, Tokyo. 
+           They were founded by Isao Takahata, Hayao Miyazaki, Toshio Suzuki, and Yasuyoshi Tokuma. </p> 
+           
+          <p class="home-text">
+           The studio is best known for its animated feature films, and has also produced several short subjects, 
+           television commercials, and one television film. It has also collaborated with video game studios on the visual development 
+           of several video games. Five of the studio's films are among the ten highest-grossing anime feature films made in Japan. 
+           Spirited Away is second, grossing 31.68 billion yen in Japan and over US$380 million worldwide, and Princess Mononoke is fourth, 
+           grossing 20.18 billion yen.</p>
+           
+           <p class="home-text">The company's logo features the character Totoro from Hayao Miyazaki's film My Neighbor Totoro.</p>
+      
+          <img class="img-home" src="img/logo-ghibli-color.png" alt="Logo Studio Ghibli">
+          <br>
+            <a class="link-more-home" href="https://ghibli.fandom.com/wiki/Studio_Ghibli">MORE</a>
+        </div>
+      </div>
 
       <div id="moviesPage" class="page-movies"> 
        <div class="contenedor-select-peliculas">
         <select name="ByDirector" id="movieByDirector" class="select-peliculas">
-          <option selected value="All-directors">Directors</option>
+          <option selected value="All-directors">All Directors</option>
           <option value="Hayao Miyazaki">Hayao Miyazaki</option>
           <option value="Isao Takahata">Isao Takahata</option>
           <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
@@ -35,14 +54,13 @@
           <option value="Year">By year</option>
         </select>
 
-        <select name="" id="" class="select-peliculas">
-          <option value="Title">By title</option>
+        <select name="" id="moviesByTitle" class="select-peliculas">
+          <option value="Title">Sort by title</option>
+          <option value="TitleAZ">A-Z</option>
+          <option value="TitleZA">Z-A</option>
         </select>
-
        </div>
-        <br>
-        <div id="moviesContainer" class="contenedor-peliculas"> </div>
-        <br>
+         <div id="moviesContainer" class="contenedor-peliculas"> </div>
        </div>
 
     <div id="charactersPage" class="characters-page"> 
@@ -83,26 +101,55 @@
         <option value="A-Z">A-Z</option>
         <option value="Z-A">Z-A</option>
       </select>
+      <br>
      </div>
       <br>
-      <div id="characterContainer" class="contenedor-personajes"> </div> </div>
+      <div id="characterContainer" class="contenedor-personajes"> </div> 
+    </div>
 
-    <div id="directorsPage" class="directors-page"> </div>
+    <div id="directorsPage" class="page-directors">
+      <div id="directorsContainer" class="contenedor-directores"> 
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Hayao Miyazaki</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/e/ef/Hayao_Miyazaki.jpg" alt="Foto de Hayao Miyazaki">
+        </div>
+        
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Isao Takahata</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/b/b6/Isao_Takahata.jpg" alt="Foto de Isao Takahata">
+        </div>
+        
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Yoshifumi Kondō</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/0/09/Kondo.jpg" alt="Foto de Yoshifumi Kondō">
+        </div>
+        
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Hiroyuki Morita</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/d/d4/Morita_Hiroyuki.jpg" alt="Foto de Hiroyuki Morita">
+        </div>
+        
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Gorō Miyazaki</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/2/2b/Goro-miyazaki.jpg" alt="Foto de Gorō Miyazaki"> 
+        </div>
+        
+        <div class="contenedor-interior-directores">
+          <h5 class="nombre-director">Hiromasa Yonebayashi</h5>
+          <img class="img-director" src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9c/Hiromasa_Yonebayashi.jpg" alt="Foto de Hiromasa Yonebayashi">
+        </div>
+        
+      </div>
+    </div>
 
     <div id="factsPage" class="facts-page"> </div>
-
-    
-    
-    
-    
     
     <div id="root"></div>
 
     </main>
 
-    
 
-    <div class="footer-container">Ghiblipedia</div>
+    <a href="index.html" class="link-footer"><div class="footer-container">Ghiblipedia</div></a>
 
     <script src="main.js" type="module"></script>
   </body>

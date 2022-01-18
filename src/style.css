@@ -11,11 +11,12 @@ body {
   font-family: "Berkshire Swash";
   font-style: normal;
   font-weight: normal;
-  font-size: 144px;
+  font-size: 9rem;
   line-height: 179px;
   color: #FFA260;
   text-align: center;
   text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
+  margin: 80px auto 50px;
 }
 
 .container-logo {
@@ -26,9 +27,10 @@ body {
 }
 
 .boton-entrar {
-  width: 331px;
+  width: 70%;
   opacity: 70%;
   position: center;
+  margin-bottom: 50px;
 }
 
 .boton-entrar:hover {
@@ -43,6 +45,10 @@ body {
   align-items: flex-end;
   margin: auto;
   bottom: 0;
+}
+
+.link-footer {
+  text-decoration: none;
 }
 
 /*BOTONES NAVBAR*/
@@ -123,11 +129,30 @@ body {
 
 /*PÁGINAS*/
 
+.page-home {
+  display: none;
+}
+
 .page-movies {
   display: none;
 }
 
+.page-directors {
+  display: none;
+}
+
 /*PÁGINAS - INNER HTML*/
+.home-text {
+  font-family: Yaldevi Colombo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  text-align: justify;
+  color: #181717;
+  margin: auto;
+  padding: 20px;
+}
 
 .contenedor-personajes {
   background-color: #cff4ec;
@@ -136,6 +161,8 @@ body {
   border-radius: 13px;
   padding: 40px;
   width: 60%;
+  height: 60vh;
+  overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
   box-shadow: 8px 8px 0px rgb(73, 170, 163);
@@ -149,10 +176,45 @@ body {
   border-radius: 13px;
   padding: 40px;
   width: 60%;
+  height: 60vh;
+  overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
   box-shadow: 8px 8px 0px rgb(94, 156, 65);
   border: 3px solid #545f4b;
+}
+
+.contenedor-home {
+  background-color: #ffd3b4;
+  display: flex;
+  flex-flow: column;
+  border-radius: 13px;
+  padding: 140px 40px 40px;
+  width: 60%;
+  height: 60vh;
+  overflow-y: scroll;
+  margin: 0 auto 70px;
+  justify-content: center;
+  box-shadow: 8px 8px 0px rgb(211, 132, 29);
+  border: 3px solid #b35f24;
+}
+
+.contenedor-directores {
+  background-color: #fff5eb;
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 13px;
+  padding: 0 40px 75px;
+  width: 60%;
+  height: 60vh;
+  margin: 0 auto 70px;
+  justify-content: center;
+  box-shadow: 8px 8px 0px rgb(224, 153, 60);
+  border: 3px solid #c9721a;
+}
+
+.contenedor-interior-directores {
+  padding: 20px;
 }
 
 .contenedor-select-personajes {
@@ -176,7 +238,7 @@ body {
   height: auto;
   width: 60%;
   padding: 20px;
-  margin: auto;
+  margin: 20px auto 20px;
   box-shadow: 8px 8px 0px rgb(94, 156, 65);
   border: 3px solid #545f4b;
 }
@@ -187,6 +249,11 @@ body {
 
 .contenedor-imagen-pelicula {
   padding: 20px;
+}
+
+.img-home {
+  width: 70%;
+  margin: auto auto 20px;
 }
 
 .img-personaje {
@@ -204,11 +271,26 @@ body {
 
 .img-pelicula {
   border-radius: 20px;
+  width: 80%;
   border: 5px solid #24756f;
 }
 
 .img-pelicula:hover {
   border: 5px solid #df9037;
+  opacity: 80%;
+}
+
+.img-director {
+  border-radius: 20px;
+  border: 5px solid #9c4e1a;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  padding: auto;
+}
+
+.img-director:hover {
+  border: 5px solid #e6e20a;
   opacity: 80%;
 }
 
@@ -251,10 +333,10 @@ body {
   font-size: 1rem;
   line-height: 31px;
   text-align: center;
-  color: #2a322a;
+  color: #322e2a;
   background-color: #f8fffe;
   border-radius: 13px;
-  border: 3px solid #24756f;
+  border: 3px solid #915519;
 }
 
 .nombre-pelicula {
@@ -268,6 +350,41 @@ body {
   background-color: #f8fffe;
   border-radius: 13px;
   border: 3px solid #24756f;
+}
+
+.nombre-director {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 31px;
+  text-align: center;
+  color: #322f2a;
+  background-color: #f8fffe;
+  border-radius: 13px;
+  border: 3px solid #755b24;
+}
+
+.link-more-home {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 45px;
+  text-decoration: none;
+  text-align: center;
+  color: #322f2a;
+  background-color: #f8fffe;
+  border-radius: 13px;
+  border: 3px solid #9e5612;
+  padding: 0px 20px 0px;
+  width: fit-content;
+  margin: auto;
+}
+
+.link-more-home:hover {
+  background-color: #d8791f;
+  color: whitesmoke;
 }
 
 .footer-container {
