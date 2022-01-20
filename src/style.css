@@ -51,6 +51,23 @@ body {
   text-decoration: none;
 }
 
+.footer-container {
+  width: 292px;
+  height: 75px;
+  font-family: Berkshire Swash;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 75px;
+  color: #f4b065;
+  width: max;
+  background-color: #fff5eb;
+  text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
+  justify-content: center;
+  display: flex;
+  margin: 0 auto 70px;
+}
+
 /*BOTONES NAVBAR*/
 
 .btn-home {
@@ -271,7 +288,9 @@ body {
 
 .img-pelicula {
   border-radius: 20px;
-  width: 80%;
+  width: 170;
+  height: 240;
+  object-fit: cover;
   border: 5px solid #24756f;
 }
 
@@ -385,19 +404,4 @@ body {
 .link-more-home:hover {
   background-color: #d8791f;
   color: whitesmoke;
-}
-
-.footer-container {
-  width: 292px;
-  height: 75px;
-  font-family: Berkshire Swash;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 60px;
-  line-height: 75px;
-  color: #f4b065;
-  text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
-  justify-content: center;
-  display: flex;
-  margin: 0 auto 70px;
 }

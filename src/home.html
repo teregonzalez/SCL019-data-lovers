@@ -7,6 +7,8 @@
   </head>
   <body>
     <header class="header-menu">
+      <a href="index.html" class="link-footer"><div class="footer-container">Ghiblipedia</div></a>
+      
       <div class="navbar">
         <button class="btn-home" id="buttonHome">Home</button> 
         <button class="btn-movies" id="buttonMovies">Movies</button> 
@@ -50,8 +52,10 @@
           <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
         </select>
 
-        <select name="" id="" class="select-peliculas">
-          <option value="Year">By year</option>
+        <select name="" id="moviesByYear" class="select-peliculas">
+          <option value="Random">By year</option>
+          <option value="Newest first">Newest first</option>
+          <option value="Oldest first">Oldest first</option>
         </select>
 
         <select name="" id="moviesByTitle" class="select-peliculas">
@@ -148,8 +152,6 @@
 
     </main>
 
-
-    <a href="index.html" class="link-footer"><div class="footer-container">Ghiblipedia</div></a>
 
     <script src="main.js" type="module"></script>
   </body>
