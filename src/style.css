@@ -203,12 +203,10 @@ body {
 
 .contenedor-home {
   background-color: #ffd3b4;
-  display: flex;
-  flex-flow: column;
   border-radius: 13px;
-  padding: 140px 40px 40px;
+  padding: 40px 40px 40px;
   width: 60%;
-  height: 60vh;
+  height: 90vh;
   overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
