@@ -1,4 +1,4 @@
-import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
+import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -124,10 +124,10 @@ selectDirectors.addEventListener('change', () => {
     }
 });
 
-//Orden por título de la película
-const moviesByTitle = document.getElementById("moviesByTitle")
+//Orden de películas por título
+const moviesByTitle = document.getElementById("moviesByTitle");
 
-moviesByTitle.addEventListener('click', () => {
+moviesByTitle.addEventListener('change', () => {
     switch (moviesByTitle.value) {
         case "Title":
             displayMovies(films);
@@ -143,6 +143,26 @@ moviesByTitle.addEventListener('click', () => {
             break;
     }
 });
+
+//Orden de películas por año de lanzamiento
+const moviesByYear = document.getElementById("moviesByYear");
+
+moviesByYear.addEventListener('change', () => {
+    switch (moviesByYear.value) {
+        case 'Random':
+            displayMovies(films)
+            break;
+        case 'Newest first':
+            displayMovies(moviesDateNewest(films));
+            break;
+        case 'Oldest first':
+            displayMovies(moviesDateOldest(films));
+            break;
+    
+        default:
+            break;
+    }
+})
 
 //Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
@@ -268,29 +288,25 @@ charByFilm.addEventListener('change', () => {
     });
 
  
-    //Función de orden alfabético por nombre
-    charactersByName.addEventListener ('change', (event) => {
-      const alphabeticalOrder = event.target.value;
-       if (alphabeticalOrder === 'A-Z') {
-         charactersNameAZ(displayCharacters(currentFilms));
-       }
-    })
+    //Función de orden alfabético por nombre de personaje
+    charactersByName.addEventListener 
 
+    charactersByName.addEventListener('change', () => {
+        switch (charactersByName.value) {
+            case "All-names":
+                displayCharacters(films)
+                break;
+             case "A-Z":
+                displayCharacters(charactersNameAZ(personajes));
+                break;
+            case "Z-A":
+                displayCharacters(charactersNameZA(films));
+                break;
+        
+            default:
+                break;
+        }
+    });
+    
 
-
-/*const personajesXgenero = (data, propiedad) => {
-   const genero = data.filter (element => element.gender == propiedad)
-   return genero;
-}
-
-const people = () => {for (let people in films) {
-    let personajes = Object.entries(films[people]);
-}};
-
-const filtroGenero = (personajes) => {
-    for (let i = 0; i < personajes.lenght; i++) {
-        let generoPersonaje = personajes[i].gender; 
-    }         
-};
-*/
-
+    
