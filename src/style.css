@@ -7,15 +7,13 @@ body {
   text-align: center;
 }
 
-/*PÁGINA DE INICIO*/
-
 .logo-grande {
   font-family: "Berkshire Swash";
   font-style: normal;
   font-weight: normal;
   font-size: 9rem;
   line-height: 179px;
-  color: #ffa260;
+  color: #FFA260;
   text-align: center;
   text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
   margin: 80px auto 50px;
@@ -206,12 +204,10 @@ body {
 
 .contenedor-home {
   background-color: #ffd3b4;
-  display: flex;
-  flex-flow: column;
   border-radius: 13px;
-  padding: 140px 40px 40px;
+  padding: 40px 40px 40px;
   width: 60%;
-  height: 60vh;
+  height: 90vh;
   overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
