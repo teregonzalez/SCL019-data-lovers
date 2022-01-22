@@ -1,4 +1,4 @@
-import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
+import {genderFilter, moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -264,23 +264,58 @@ charByFilm.addEventListener('change', () => {
             break;
     }
 });
-
+  
 
     //Función de filtrado de personajes por género.
+    
+    const filterFemale = () => {
+        characterContainer.innerHTML = "";
+        personajes.forEach(item => {
+            const female = genderFilter(item, "Female");
+            console.log(female);
+            for (let i = 0; i < female.length; i++) {
+              characterContainer.innerHTML += characterImage(female[i].img, female[i].name);     
+            }; 
+          });
+        };
+
+        const filterMale = () => {
+            characterContainer.innerHTML = "";
+            personajes.forEach(item => {
+                const male = genderFilter(item, "Male");
+                console.log(male);
+                for (let i = 0; i < male.length; i++) {
+                  characterContainer.innerHTML += characterImage(male[i].img, male[i].name);     
+                }; 
+              });
+            };
+
+        const filterUnknown = () => {
+            characterContainer.innerHTML = "";
+             personajes.forEach(item => {
+                const unknown = genderFilter(item, "Unknown (Possible Male)");
+                console.log(unknown);
+                for (let i = 0; i < unknown.length; i++) {
+                    characterContainer.innerHTML += characterImage(unknown[i].img, unknown[i].name);     
+                    }; 
+                  });
+                };
+
+    
 
     charactersByGender.addEventListener ('change', () => {
         switch (charactersByGender.value) {
             case 'All-genders':
-                displayCharacters(charactersFilter(currentFilms, "Female" && "Male"));
+                displayCharacters(films);
                 break;
             case 'Female':
-                displayCharacters(charactersFilter(currentFilms, "Female"));
+                filterFemale(currentFilms); 
             break;
             case 'Male':
-                displayCharacters(charactersFilter(currentFilms, "Male"));
+                filterMale(currentFilms);
                 break;
             case 'Unknown':
-                displayCharacters(charactersFilter(currentFilms, "Unknown (Possible Male)"));
+                filterUnknown(currentFilms);
                 break;
             default:
                 break;
@@ -291,16 +326,28 @@ charByFilm.addEventListener('change', () => {
     //Función de orden alfabético por nombre de personaje
     charactersByName.addEventListener 
 
+    const orderAz = () => {
+        characterContainer.innerHTML = "";
+        personajes.forEach(item => {
+         let namesAz =charactersNameAZ(item)
+         console.log(namesAz);
+         for (let i = 0; i < namesAz.length; i++) {
+            characterContainer.innerHTML += characterImage(namesAz[i].img, namesAz[i].name);     
+          }; 
+     })
+    };
+     console.log(orderAz);
+
     charactersByName.addEventListener('change', () => {
         switch (charactersByName.value) {
             case "All-names":
                 displayCharacters(films)
                 break;
              case "A-Z":
-                displayCharacters(charactersNameAZ(personajes));
+                orderAz(personajes);
                 break;
             case "Z-A":
-                displayCharacters(charactersNameZA(films));
+                displayCharacters(charactersNameZA(currentFilms));
                 break;
         
             default:

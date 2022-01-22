@@ -35,9 +35,14 @@ export const movieCharacters = (films, filmTitle) => {
 //Función de filtrado de personajes por género.
 export const charactersFilter = (data, condition) => {
   console.log(data)
-  data[0].people = data[0].people.filter (personaje => personaje.gender == condition)
+  data[0].people = data[0].people.filter (personaje => personaje.gender == condition);
   return data;
 }; 
+
+export const genderFilter = (data, condition) => {
+  const gender = data.filter (element => element.gender == condition);
+  return gender;
+};
 
 //Función de orden alfabético ascendente y descendente
 export const charactersNameAZ = (data) => {
