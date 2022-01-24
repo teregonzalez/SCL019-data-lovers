@@ -1,4 +1,4 @@
-import {genderFilter, moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilter, movieCharacters, charactersNameAZ, charactersNameZA } from './data.js';
+import {genderFilter, moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters, charactersNameAZ, charactersNameZA } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -6,7 +6,6 @@ import data from './data/ghibli/ghibli.js';
 //Accediendo a la información de la data.
 const films = data.films
 const personajes = films.map(films => films.people)
-console.log(personajes)
 let currentFilms = films
 
 //Páginas
@@ -179,10 +178,9 @@ const characterImage = (characterImg, name, gender) => {
 
 //Función de display que vacía el contenedor y luego lo llena con imagen y nombre de personajes.
 const displayCharacters = (films) => {
-    currentFilms = films
     characterContainer.innerHTML = ""
-    for (let i = 0; i < currentFilms.length; i++) {
-        let characters = currentFilms[i].people;
+    for (let i = 0; i < films.length; i++) {
+        let characters = films[i].people;
         for (let j = 0; j < characters.length; j++) {
             characterContainer.innerHTML += characterImage(characters[j].img, characters[j].name);
         }
@@ -191,78 +189,16 @@ const displayCharacters = (films) => {
 
 
 //Declarando variable para selects de personajes.
-const charByFilm = document.getElementById("charactersByFilm")
+const charactersByFilm = document.getElementById("charactersByFilm")
 const charactersByGender = document.getElementById("charactersByGender")
 const charactersByName = document.getElementById("charactersAtoZ")
 
+const charactersSelectValues = () => [charactersByFilm.value, charactersByGender.value, charactersByName.value];
+
 //Que la función de filtrado se active al hacer un cambio en el select.
-charByFilm.addEventListener('change', () => {
-    switch (charByFilm.value) {
-        case 'Every-movie': displayCharacters(films);
-            break;
-        case 'Castle-in-the-Sky':
-            displayCharacters(movieCharacters(films, "Castle in the Sky"));
-            break;
-        case 'My-Neighbor-Totoro':
-            displayCharacters(movieCharacters(films, "My Neighbor Totoro"));
-            break;
-        case 'Kikis-Delivery-Service':
-            displayCharacters(movieCharacters(films, "Kiki's Delivery Service"));
-            break;
-        case 'Grave-of-the-Fireflies':
-            displayCharacters(movieCharacters(films, "Grave of the Fireflies"));
-            break;
-        case 'Only-Yesterday':
-            displayCharacters(movieCharacters(films, "Only Yesterday"));
-            break;
-        case 'Porco-Rosso':
-            displayCharacters(movieCharacters(films, "Porco Rosso"));
-            break;
-        case 'Pom-Poko':
-            displayCharacters(movieCharacters(films, "Pom Poko"));
-            break;
-        case 'Whisper-of-the-Heart':
-            displayCharacters(movieCharacters(films, "Whisper of the Heart"));
-            break;
-        case 'Princess-Mononoke':
-            displayCharacters(movieCharacters(films, "Princess Mononoke"));
-            break;
-        case 'My-Neighbors-the-Yamadas':
-            displayCharacters(movieCharacters(films, "My Neighbors the Yamadas"));
-            break;
-        case 'Spirited-Away':
-            displayCharacters(movieCharacters(films, "Spirited Away"));
-            break;
-        case 'The-Cat-Returns':
-            displayCharacters(movieCharacters(films, "The Cat Returns"));
-            break;
-        case 'Howls-Moving-Castle':
-            displayCharacters(movieCharacters(films, "Howl's Moving Castle"));
-            break;
-        case 'Tales-from-Earthsea':
-            displayCharacters(movieCharacters(films, "Tales from Earthsea"));
-            break;
-        case 'Ponyo-on-the-Cliff-by-the-Sea':
-            displayCharacters(movieCharacters(films, "Ponyo on the Cliff by the Sea"));
-            break;
-        case 'The-Secret-World-of-Arrietty':
-            displayCharacters(movieCharacters(films, "The Secret World of Arrietty"));
-            break;
-        case 'From-Up-on-Poppy-Hill':
-            displayCharacters(movieCharacters(films, "From Up on Poppy Hill"));
-            break;
-        case 'The-Wind-Rises':
-            displayCharacters(movieCharacters(films, "The Wind Rises"));
-            break;
-        case 'The-Tale-of-the-Princess-Kaguya':
-            displayCharacters(movieCharacters(films, "The Tale of the Princess Kaguya"));
-            break;
-        case 'When-Marnie-Was-There':
-            displayCharacters(movieCharacters(films, "When Marnie Was There"));
-            break;
-        default:
-            break;
-    }
+charactersByFilm.addEventListener('click', () => {
+    let values = charactersSelectValues(films); 
+    console.log(values)
 });
   
 
@@ -272,7 +208,6 @@ charByFilm.addEventListener('change', () => {
         characterContainer.innerHTML = "";
         personajes.forEach(item => {
             const female = genderFilter(item, "Female");
-            console.log(female);
             for (let i = 0; i < female.length; i++) {
               characterContainer.innerHTML += characterImage(female[i].img, female[i].name);     
             }; 
@@ -283,7 +218,6 @@ charByFilm.addEventListener('change', () => {
             characterContainer.innerHTML = "";
             personajes.forEach(item => {
                 const male = genderFilter(item, "Male");
-                console.log(male);
                 for (let i = 0; i < male.length; i++) {
                   characterContainer.innerHTML += characterImage(male[i].img, male[i].name);     
                 }; 
@@ -294,7 +228,6 @@ charByFilm.addEventListener('change', () => {
             characterContainer.innerHTML = "";
              personajes.forEach(item => {
                 const unknown = genderFilter(item, "Unknown (Possible Male)");
-                console.log(unknown);
                 for (let i = 0; i < unknown.length; i++) {
                     characterContainer.innerHTML += characterImage(unknown[i].img, unknown[i].name);     
                     }; 
@@ -330,13 +263,11 @@ charByFilm.addEventListener('change', () => {
         characterContainer.innerHTML = "";
         personajes.forEach(item => {
          let namesAz =charactersNameAZ(item)
-         console.log(namesAz);
          for (let i = 0; i < namesAz.length; i++) {
             characterContainer.innerHTML += characterImage(namesAz[i].img, namesAz[i].name);     
           }; 
      })
     };
-     console.log(orderAz);
 
     charactersByName.addEventListener('change', () => {
         switch (charactersByName.value) {
