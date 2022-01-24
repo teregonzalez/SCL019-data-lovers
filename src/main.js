@@ -1,4 +1,4 @@
-import {genderFilter, moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters, charactersNameAZ, charactersNameZA } from './data.js';
+import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters, charactersNameAZ, charactersNameZA } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -166,14 +166,13 @@ moviesByYear.addEventListener('change', () => {
 //Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
 
-const characterImage = (characterImg, name, gender) => {
+const characterImage = (characterImg, name) => {
     return `
     <div class="contenedor-imagen-personaje">
     <h5 class="nombre-personaje">${name}</h5>
     <img class="img-personaje" src="${characterImg}">
     </div>`;
 };
-
 
 
 //Función de display que vacía el contenedor y luego lo llena con imagen y nombre de personajes.
@@ -187,104 +186,46 @@ const displayCharacters = (films) => {
     }
 };
 
+const displayFilter = (films) => {
+    characterContainer.innerHTML = ""
+    for (let i = 0; i < films.length; i++) {
+        let characters = films[i];
+        for (let j = 0; j < characters.length; j++) {
+        characterContainer.innerHTML += characterImage(characters[j].img, characters[j].name);       
+        }
+      }
+    };
 
-//Declarando variable para selects de personajes.
+//Declarando variables para selects de personajes.
 const charactersByFilm = document.getElementById("charactersByFilm")
 const charactersByGender = document.getElementById("charactersByGender")
 const charactersByName = document.getElementById("charactersAtoZ")
 
+//Almacenando el value de los distintos selects
 const charactersSelectValues = () => [charactersByFilm.value, charactersByGender.value, charactersByName.value];
 
-//Que la función de filtrado se active al hacer un cambio en el select.
-charactersByFilm.addEventListener('click', () => {
-    let values = charactersSelectValues(films); 
-    console.log(values)
-});
-  
 
-    //Función de filtrado de personajes por género.
-    
-    const filterFemale = () => {
-        characterContainer.innerHTML = "";
-        personajes.forEach(item => {
-            const female = genderFilter(item, "Female");
-            for (let i = 0; i < female.length; i++) {
-              characterContainer.innerHTML += characterImage(female[i].img, female[i].name);     
-            }; 
-          });
-        };
-
-        const filterMale = () => {
-            characterContainer.innerHTML = "";
-            personajes.forEach(item => {
-                const male = genderFilter(item, "Male");
-                for (let i = 0; i < male.length; i++) {
-                  characterContainer.innerHTML += characterImage(male[i].img, male[i].name);     
-                }; 
-              });
-            };
-
-        const filterUnknown = () => {
-            characterContainer.innerHTML = "";
-             personajes.forEach(item => {
-                const unknown = genderFilter(item, "Unknown (Possible Male)");
-                for (let i = 0; i < unknown.length; i++) {
-                    characterContainer.innerHTML += characterImage(unknown[i].img, unknown[i].name);     
-                    }; 
-                  });
-                };
-
-    
-
-    charactersByGender.addEventListener ('change', () => {
-        switch (charactersByGender.value) {
-            case 'All-genders':
-                displayCharacters(films);
-                break;
-            case 'Female':
-                filterFemale(currentFilms); 
-            break;
-            case 'Male':
-                filterMale(currentFilms);
-                break;
-            case 'Unknown':
-                filterUnknown(currentFilms);
-                break;
-            default:
-                break;
-        }
+//Que la función de filtrado se active al hacer click en el select.
+charactersByFilm.addEventListener('change', () => {
+    let options = charactersSelectValues()
+    let [title, gender, peopleName] = options
+    displayFilter(charactersFilters(films, title, gender, peopleName));  
     });
-
  
-    //Función de orden alfabético por nombre de personaje
-    charactersByName.addEventListener 
-
-    const orderAz = () => {
-        characterContainer.innerHTML = "";
-        personajes.forEach(item => {
-         let namesAz =charactersNameAZ(item)
-         for (let i = 0; i < namesAz.length; i++) {
-            characterContainer.innerHTML += characterImage(namesAz[i].img, namesAz[i].name);     
-          }; 
-     })
-    };
-
-    charactersByName.addEventListener('change', () => {
-        switch (charactersByName.value) {
-            case "All-names":
-                displayCharacters(films)
-                break;
-             case "A-Z":
-                orderAz(personajes);
-                break;
-            case "Z-A":
-                displayCharacters(charactersNameZA(currentFilms));
-                break;
-        
-            default:
-                break;
-        }
+//Función de filtrado de personajes por género.
+charactersByGender.addEventListener('change', () => {
+    let options = charactersSelectValues()
+    let [title, gender, peopleName] = options
+    displayFilter(charactersFilters(films, title, gender, peopleName)); 
     });
+
+//Función de orden alfabético por nombre de personaje
+charactersByName.addEventListener('change', () => {
+    let options = charactersSelectValues()
+    let [title, gender, peopleName] = options
+    displayFilter(charactersFilters(films, title, gender, peopleName)); 
+    });
+    
     
 
     

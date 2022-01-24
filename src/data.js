@@ -26,24 +26,13 @@ export const moviesDateOldest = (data) => {
     return orderOld
   };
 
-//Función que filtra los personajes por película.
-/*export const movieCharacters = (films, filmTitle) => {
-  const movieCharacters = films.filter (film => film.title == filmTitle);
-  return movieCharacters;
-};*/
-
 export const charactersFilters = (films, filmTitle, gender, name) => {
   const movieCharacters = films.filter(film => filmTitle === 'Everymovie' ? true : film.title === filmTitle)
   .map(film => film.people.filter(character => gender === 'All-genders' ? true : character.gender == gender)
-  .sort((a, b) => name === 'A-Z' ? true : ((a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1)));
+  .sort((a, b) => name === 'All-names' ? true : ((a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1)));
   return movieCharacters;
 };
 
-
-export const genderFilter = (data, condition) => {
-  const gender = data.filter (element => element.gender == condition);
-  return gender;
-};
 
 //Función de orden alfabético ascendente y descendente
 export const charactersNameAZ = (data) => {
