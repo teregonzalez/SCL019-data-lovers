@@ -222,8 +222,9 @@ body {
   border-radius: 13px;
   padding: 0 40px 75px;
   width: 60%;
-  height: 60vh;
+  height: 90vh;
   margin: 0 auto 70px;
+  overflow-y: scroll;
   justify-content: center;
   box-shadow: 8px 8px 0px rgb(224, 153, 60);
   border: 3px solid #c9721a;
@@ -296,6 +297,13 @@ body {
 .img-pelicula:hover {
   border: 5px solid #df9037;
   opacity: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+  .img-director {
+    width: 30%;
+  }
+
 }
 
 .img-director {
