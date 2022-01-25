@@ -1,4 +1,4 @@
-import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters, charactersNameAZ, charactersNameZA } from './data.js';
+import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters} from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -6,7 +6,6 @@ import data from './data/ghibli/ghibli.js';
 //Accediendo a la información de la data.
 const films = data.films
 const personajes = films.map(films => films.people)
-let currentFilms = films
 
 //Páginas
 const homePage = document.getElementById("homePage")

@@ -29,21 +29,10 @@ export const moviesDateOldest = (data) => {
 export const charactersFilters = (films, filmTitle, gender, name) => {
   const movieCharacters = films.filter(film => filmTitle === 'Everymovie' ? true : film.title === filmTitle)
   .map(film => film.people.filter(character => gender === 'All-genders' ? true : character.gender == gender)
-  .sort((a, b) => name === 'All-names' ? true : ((a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1)));
+  .sort((a, b) => name === 'All-names' ? true : name === 'A-Z' ? a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1 : a.name.toUpperCase() < b.name.toUpperCase() ? 1 : -1));
   return movieCharacters;
 };
 
-
-//Función de orden alfabético ascendente y descendente
-export const charactersNameAZ = (data) => {
-  const orderZA = data.sort((a, b) => ((a.name.toUpperCase() > b.name.toUpperCase()) ? 1: -1));
-    return orderZA
-  };
-
-export const charactersNameZA = (data) => {
-  const orderZA = data.sort((a, b) => ((a.name.toUpperCase() < b.name.toUpperCase()) ? 1: -1));
-    return orderZA
-  };
 
 
 
