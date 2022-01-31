@@ -175,11 +175,11 @@ body {
   border-radius: 13px;
   padding: 40px;
   width: 60%;
-  height: 60vh;
+  height: 40vh;
   overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
-  box-shadow: 8px 8px 0px rgb(73, 170, 163);
+  box-shadow: 8px 8px 0px rgb(73 170 163);
   border: 3px solid #24756f;
 }
 
@@ -203,7 +203,7 @@ body {
   border-radius: 13px;
   padding: 40px 40px 40px;
   width: 60%;
-  height: 90vh;
+  height: auto;
   overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
@@ -216,9 +216,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   border-radius: 13px;
-  padding: 0 40px 75px;
+  padding: 0 40px 40px;
   width: 60%;
-  height: 90vh;
+  height: auto;
   margin: 0 auto 70px;
   overflow-y: scroll;
   justify-content: center;
@@ -293,12 +293,6 @@ body {
 .img-pelicula:hover {
   border: 5px solid #df9037;
   opacity: 80%;
-}
-
-@media only screen and (max-width: 768px) {
-  .img-director {
-    width: 30%;
-  }
 }
 
 .img-director {
@@ -406,4 +400,68 @@ body {
 .link-more-home:hover {
   background-color: #d8791f;
   color: whitesmoke;
+}
+
+@media only screen and (max-width: 768px) {
+  .contenedor-directores {
+    width: 30%;
+    height: 30%;
+  }
+
+  .logo-grande {
+    font-size: 4rem;
+  }
+
+  .boton-entrar {
+    width: 50%;
+  }
+
+  .footer-inicio {
+    width: 30%;
+    font-size: 70%;
+  }
+
+  .navbar {
+    margin: 70px auto 30px;
+    width: 30%;
+  }
+
+  .btn-home {
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .btn-movies {
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .btn-characters {
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .btn-directors {
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .btn-facts {
+    font-size: 1rem;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .select-personajes {
+    width: 50%;
+    height: 50%;
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+
+  .select-peliculas {
+    width: 50%;
+    height: 50%;
+    font-size: 0.7rem;
+    padding: 5px;
+  }
 }
