@@ -1,4 +1,4 @@
-import {moviesByDirector, moviesTitlesAZ, moviesTitlesZA, moviesDateNewest, moviesDateOldest, charactersFilters} from './data.js';
+import {moviesByDirector, moviesTitlesAZ, moviesDate, charactersFilters} from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
@@ -39,7 +39,7 @@ const movies = (title, poster) => {
     return `
     <div class="contenedor-imagen-pelicula">
     <h5 class="nombre-pelicula">${title}</h5>
-    <img class="img-pelicula" src="${poster}"> 
+    <img class="img-pelicula" src="${poster}">
     </div>
     `;
 };
@@ -59,6 +59,7 @@ const displayMovies = (films) => {
     btnMovies.addEventListener('click', () => {
         displayMovies(films);
     });
+
 
 //innerHTML de la página de personajes.
 const btnCharacters = document.getElementById("buttonCharacters");
@@ -95,72 +96,25 @@ btnDirectors.addEventListener('click', () => {
 const selectDirectors = document.getElementById("movieByDirector")
 
 selectDirectors.addEventListener('change', () => {
-    switch (selectDirectors.value) {
-        case "All-directors":
-            displayMovies(films)
-            break;
-        case "Hayao Miyazaki":
-            displayMovies(moviesByDirector(films, "Hayao Miyazaki"));
-            break;
-        case "Isao Takahata":
-            displayMovies(moviesByDirector(films, "Isao Takahata"));
-            break;
-        case "Yoshifumi Kondō":
-            displayMovies(moviesByDirector(films, "Yoshifumi Kondō"));
-            break;
-        case "Hiroyuki Morita":
-            displayMovies(moviesByDirector(films, "Hiroyuki Morita"));
-            break;
-        case "Gorō Miyazaki":
-            displayMovies(moviesByDirector(films, "Gorō Miyazaki"));
-            break;
-        case "Hiromasa Yonebayashi":
-            displayMovies(moviesByDirector(films, "Hiromasa Yonebayashi"));
-            break;
-        default:
-            break;
-    }
+    let directors = selectDirectors.value
+    displayMovies(moviesByDirector(films, directors));
 });
 
 //Orden de películas por título
 const moviesByTitle = document.getElementById("moviesByTitle");
 
 moviesByTitle.addEventListener('change', () => {
-    switch (moviesByTitle.value) {
-        case "Title":
-            displayMovies(films);
-            break;
-         case "TitleAZ":
-            displayMovies(moviesTitlesAZ(films));
-            break;
-        case "TitleZA":
-            displayMovies(moviesTitlesZA(films));
-            break;
-    
-        default:
-            break;
-    }
+     let title = moviesByTitle.value
+     displayMovies(moviesTitlesAZ(films, title));
 });
 
 //Orden de películas por año de lanzamiento
 const moviesByYear = document.getElementById("moviesByYear");
 
 moviesByYear.addEventListener('change', () => {
-    switch (moviesByYear.value) {
-        case 'Random':
-            displayMovies(films)
-            break;
-        case 'Newest first':
-            displayMovies(moviesDateNewest(films));
-            break;
-        case 'Oldest first':
-            displayMovies(moviesDateOldest(films));
-            break;
-    
-        default:
-            break;
-    }
-})
+    let dates = moviesByYear.value
+    displayMovies(moviesDate(films, dates));     
+});
 
 //Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
@@ -225,6 +179,11 @@ charactersByName.addEventListener('change', () => {
     displayFilter(charactersFilters(films, title, gender, peopleName)); 
     });
     
-    
+//Modal personajes
+
+const characterModal = (characterImg, name) => {
+    return `
+    <button onclick="" >`;
+};
 
     
