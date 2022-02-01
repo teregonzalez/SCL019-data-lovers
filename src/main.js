@@ -182,6 +182,7 @@ charactersByFilm.addEventListener('change', () => {
     let options = charactersSelectValues()
     let [title, gender, peopleName] = options
     displayFilter(charactersFilters(films, title, gender, peopleName));
+    console.log(charactersFilters(films, title, gender, peopleName));
 });
 
 // Función de filtrado de personajes por género.
@@ -200,9 +201,5 @@ charactersByName.addEventListener('change', () => {
     
 //Modal personajes
 
-const characterModal = (characterImg, name) => {
-    return `
-    <button onclick="" >`;
-};
 
     

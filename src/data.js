@@ -1,6 +1,6 @@
 //Función de filtro de películas por director
 export const moviesByDirector = (data, directorName) => {
-  const movieDirector = data.filter (element => directorName === 'All directors' ? true : element.director == directorName);
+  const movieDirector = data.filter (element => directorName === 'All-directors' ? true : element.director == directorName);
   return movieDirector;
 };
 
