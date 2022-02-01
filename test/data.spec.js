@@ -105,7 +105,7 @@ describe("moviesTitlesAZ", () => {
       expect(release[2].release_date).toEqual("2010")
     });
 
-    it("should order movies from oldest to newest", () => {
+    it("should order movies from newest to oldest", () => {
       let release = moviesDate(data, "Newest first")
       expect(release[0].release_date).toEqual("2010")
       expect(release[1].release_date).toEqual("1988")
@@ -119,9 +119,23 @@ describe("charactersFilters", () => {
   });
 
   it("should return the characters of the movie Castle in the Sky", () => {
-    let characters = charactersFilters(data, ["Castle in the Sky"], "All-genders", "All-names")
+    let characters = charactersFilters(data, "Castle in the Sky", "All-genders", "All-names")
     expect(characters[0][0].name).toEqual("Pazu")
     expect(characters[0][1].name).toEqual("Lusheeta Toel Ul Laputa")
-  })
-})
+  });
+
+  it("should return only the female characters of the movie The Secret World of Arrietty, from A to Z", () => {
+    let characters = charactersFilters(data, "The Secret World of Arrietty", "Female", "A-Z")
+    expect(characters[0][0].name).toEqual("Homily Clock")
+    expect(characters[0][1].name).toEqual("Karigurashi/Arrietty")
+    expect(characters[0][2].name).toEqual("Sadako Maki/Jessica")
+  });
+
+  it("should return only the male characters of all the movies, from Z to A", () => {
+    let characters = charactersFilters(data, "Everymovie", "Male", "Z-A")
+    expect(characters[0][0].name).toEqual("Sho (Shawn)")
+    expect(characters[1][0].name).toEqual("Seita Yokokawa")
+    expect(characters[2][0].name).toEqual("Pazu")
+  });
+});
 
