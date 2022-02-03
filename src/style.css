@@ -465,3 +465,16 @@ body {
     padding: 5px;
   }
 }
+
+/*MODAL PELÍCULAS*/
+
+.modalMovie {
+  background-color: #ffa260;
+  visibility: hidden;
+  display: flex;
+  flex-flow: row;
+}
+
+.modalMovie.active {
+  visibility: visible;
+}
