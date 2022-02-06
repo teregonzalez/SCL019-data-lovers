@@ -30,8 +30,11 @@ En base a esto, trabajamos con las siguientes historias de usuario:
 ## 3. Diseño de la Interfaz de usuario
 
 ### Prototipo de baja fidelidad
+![prototipo-baja](https://user-images.githubusercontent.com/95220695/152667956-7a202879-287d-481d-bc28-531124c9eca2.png)
 
 ### Prototipo de alta fidelidad
+![prototipo-alta-1](https://user-images.githubusercontent.com/95220695/152667960-e7a073ed-1b05-4ae6-a423-f5a1c03f0d93.png)
+![prototipo-alta-2](https://user-images.githubusercontent.com/95220695/152667964-8e9a27e6-5d1c-4854-bf8d-9bc6a67a8cfa.png)
 
 ## 4. Implementación de la Interfaz de usuario
 ### Navegador web
