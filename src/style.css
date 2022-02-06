@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Rampart+One&family=Yaldevi&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Merriweather&family=Montserrat&family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi&display=swap");
 
 body {
   background-image: url(img/backgroundeditado.png);
@@ -60,9 +61,9 @@ body {
   background-color: #fff5eb;
   text-shadow: 1px 2px rgb(214, 180, 166), -1px -1px rgb(148, 119, 96);
   justify-content: center;
-  display: flex;
   margin: 0 auto 70px;
   border-radius: 30px;
+  border: 3px solid #b38551;
 }
 
 /*BOTONES NAVBAR*/
@@ -280,6 +281,7 @@ body {
 .img-personaje:hover {
   border: 5px solid #df9037;
   opacity: 80%;
+  cursor: pointer;
 }
 
 .img-pelicula {
@@ -293,6 +295,7 @@ body {
 .img-pelicula:hover {
   border: 5px solid #df9037;
   opacity: 80%;
+  cursor: pointer;
 }
 
 .img-director {
@@ -307,6 +310,7 @@ body {
 .img-director:hover {
   border: 5px solid #e6e20a;
   opacity: 80%;
+  cursor: pointer;
 }
 
 .select-personajes {
@@ -469,26 +473,89 @@ body {
 /*MODAL PELÍCULAS*/
 
 .modal {
-  background-color: #dcffcf;
+  background-color: rgba(0, 0, 0, 0.28);
   z-index: 1;
-  align-items: center;
-  display: flex;
   position: fixed;
-  margin: auto;
-  width: 80%;
-  height: auto;
-  left: 106px;
-  top: 131px;
-  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
   visibility: hidden;
+  overflow: auto;
 }
 
 .modalMovies {
   background-color: #dcffcf;
+  border: 7px solid #656d4f;
   z-index: 1;
-  align-items: left;
   display: flex;
-  margin: auto;
+  margin: 20% auto;
   padding: 20px;
   border-radius: 20px;
+  width: 60%;
+}
+
+.modalCharacter {
+  background-color: #cffff4;
+  border: 7px solid #466362;
+  z-index: 1;
+  display: flex;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.image-modal {
+  box-shadow: 0px 4px 6px 3px rgba(0, 0, 0, 0.28);
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 34px;
+  margin-top: 35px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.image-modal-movie {
+  box-shadow: 0px 4px 6px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 34px;
+  margin-top: 50%;
+  margin-right: 20px;
+}
+
+.modal-text {
+  font-family: "Yaldevi", sans-serif;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: justify;
+  font-weight: regular;
+  color: #353c25;
+}
+
+.modal-header {
+  font-family: "Yaldevi", sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  color: #353c25;
+}
+
+.modal-list {
+  font-family: "Yaldevi", sans-serif;
+  list-style-type: circle;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.btn-modal {
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.btn-modal:hover {
+  cursor: pointer;
 }

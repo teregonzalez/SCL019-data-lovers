@@ -61,18 +61,23 @@ const moviePopUp = (array) => {
   let moviePoster = document.createElement("img");
   moviePoster.setAttribute("src", `${array.poster}`);
   moviePoster.setAttribute("alt", "Poster of the movie");
+  moviePoster.classList.add("image-modal-movie");
   let movieTitle = document.createElement("h4");
+  movieTitle.classList.add("modal-header");
   movieTitle.innerHTML = `${array.title}`;
   let movieDescription = document.createElement("p");
+  movieDescription.classList.add("modal-text");
   movieDescription.innerHTML = `${array.description}`;
   let movieData = document.createElement("ul");
-  movieData.innerHTML = `<li>Director: ${array.director}</li>
-    <li>Producer: ${array.producer}</li>
-    <li>Release date: ${array.release_date}</li>
-    <li>Rating score: ${array.rt_score}</li>`;
+  movieData.classList.add("modal-list");
+  movieData.innerHTML = `<li class="modal-list"><b>Director:</b> ${array.director}</li>
+    <li class="modal-list"><b>Producer:</b> ${array.producer}</li>
+    <li class="modal-list"><b>Release date:</b> ${array.release_date}</li>
+    <li class="modal-list"><b>Rating score:</b> ${array.rt_score}</li>`;
 
-  let btnClose = document.createElement("button");
-  btnClose.innerHTML = "Close";
+  let btnClose = document.createElement("span");
+  btnClose.classList.add("btn-modal");
+  btnClose.innerHTML = "&times;";
 
   divMoviePoster.appendChild(moviePoster);
   divMovieDescription.appendChild(movieTitle);
@@ -164,13 +169,62 @@ moviesByYear.addEventListener("change", () => {
 
 // Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
+let divModalCharacter = document.createElement("div");
+let modalCharacter = document.getElementById("characterModal");
 
-const characterImage = (characterImg, name) => {
-  return `
-    <div class="contenedor-imagen-personaje">
-    <h5 class="nombre-personaje">${name}</h5>
-    <img class="img-personaje" src="${characterImg}">
-    </div>`;
+const characterPopUp = (array) => {
+  divModalCharacter.classList.add("modalCharacter");
+  let divCharacterImg = document.createElement("div");
+  let characterImg = document.createElement("img");
+  characterImg.setAttribute("src", `${array.img}`);
+  characterImg.setAttribute("alt", "Image of the character");
+  characterImg.classList.add("image-modal");
+  let divCharacterInfo = document.createElement("div");
+  divCharacterInfo.classList.add("modal-text");
+  let characterName = document.createElement("h4");
+  characterName.innerHTML = `${array.name}`;
+  characterName.classList.add("modal-header");
+  let characterData = document.createElement("ul");
+  characterData.classList.add("modal-list");
+  characterData.innerHTML = `<li class="modal-list"><b>Gender:</b> ${array.gender}</li>
+    <li class="modal-list"><b>Age:</b> ${array.age}</li>
+    <li class="modal-list"><b>Eye color:</b> ${array.eye_color}</li>
+    <li class="modal-list"><b>Hair color:</b> ${array.hair_color}</li>
+    <li class="modal-list"><b>Specie:</b> ${array.specie}</li>`;
+
+  let btnClose = document.createElement("span");
+  btnClose.classList.add("btn-modal");
+  btnClose.innerHTML = "&times;";
+
+  divCharacterImg.appendChild(characterImg);
+  divCharacterInfo.appendChild(characterName);
+  divCharacterInfo.appendChild(characterData);
+  divModalCharacter.appendChild(divCharacterImg);
+  divModalCharacter.appendChild(divCharacterInfo);
+  divModalCharacter.appendChild(btnClose);
+  modalCharacter.appendChild(divModalCharacter);
+
+  btnClose.addEventListener("click", () => {
+    modalCharacter.style.visibility = "hidden";
+  });
+};
+
+const charactersDisplay = (data) => {
+  data.forEach((array) => {
+    let characterCard = document.createElement("div");
+    characterCard.setAttribute("class", "contenedor-imagen-personaje");
+    characterCard.innerHTML = `
+    <h5 class="nombre-personaje">${array.name}</h5>
+    <img class="img-personaje" src="${array.img}">
+    `;
+    characterCard.addEventListener("click", () => {
+      divModalCharacter.innerHTML = "";
+      modalCharacter.style.visibility = "visible";
+      modalCharacter.append(divModalCharacter);
+      characterPopUp(array);
+    });
+    characterContainer.appendChild(characterCard);
+  });
 };
 
 // Función de display que vacía el contenedor y luego lo llena con imagen y nombre de personajes.
@@ -178,12 +232,7 @@ const displayCharacters = (films) => {
   characterContainer.innerHTML = "";
   for (let i = 0; i < films.length; i++) {
     let characters = films[i].people;
-    for (let j = 0; j < characters.length; j++) {
-      characterContainer.innerHTML += characterImage(
-        characters[j].img,
-        characters[j].name
-      );
-    }
+    charactersDisplay(characters);
   }
 };
 
@@ -191,12 +240,7 @@ const displayFilter = (films) => {
   characterContainer.innerHTML = "";
   for (let i = 0; i < films.length; i++) {
     let characters = films[i];
-    for (let j = 0; j < characters.length; j++) {
-      characterContainer.innerHTML += characterImage(
-        characters[j].img,
-        characters[j].name
-      );
-    }
+    charactersDisplay(characters);
   }
 };
 
