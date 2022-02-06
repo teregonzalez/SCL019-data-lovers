@@ -38,6 +38,8 @@ window.addEventListener("load", () => displayHome());
 //innerHTML de la página de películas.
 const btnMovies = document.getElementById("buttonMovies");
 const moviesContainer = document.getElementById("moviesContainer");
+let modalPelicula = document.getElementById("movieModal");
+let divModalMovies = document.createElement("div");
 
 const movies = (title, poster) => {
   return `
@@ -55,46 +57,14 @@ const displayMovies = (films) => {
   directorsPage.style.display = "none";
   factsPage.style.display = "none";
   moviesContainer.innerHTML = "";
+
   for (let i = 0; i < films.length; i++) {
-    let divModalMovies = document.createElement("div");
-    divModalMovies.classList.add("modalMovie");
-
     moviesContainer.innerHTML += movies(films[i].title, films[i].poster);
-
-    let divMoviePoster = document.createElement("div");
-    let divMovieDescription = document.createElement("div");
-    let moviePoster = document.createElement("img");
-    moviePoster.setAttribute("src", `${films[i].poster}`);
-    moviePoster.setAttribute("alt", "Poster of the `${films[i].title}` movie");
-    let movieTitle = document.createElement("h4");
-    movieTitle.innerHTML = `${films[i].title}`;
-    let movieDescription = document.createElement("p");
-    movieDescription.innerHTML = `${films[i].description}`;
-    let movieData = document.createElement("ul");
-    movieData.innerHTML = `<li>Director: ${films[i].director}</li>
-  <li>Producer: ${films[i].producer}</li>
-  <li>Release date: ${films[i].release_date}</li>
-  <li>Rating score: ${films[i].rt_score}</li>`;
-
-    let btnClose = document.createElement("button");
-    btnClose.innerHTML = "Close";
-
-    divMoviePoster.appendChild(moviePoster);
-    divMovieDescription.appendChild(movieTitle, movieDescription, movieData);
-    divModalMovies.appendChild(divMoviePoster, divMovieDescription, btnClose);
-
-    let movieImg = document.getElementById("imageMovie");
-    movieImg.addEventListener("click", function (e) {
-      e.preventDefault();
-      moviesContainer.innerHTML += divModalMovies;
-      divModalMovies.classList.add("active");
-      alert("hiciste click");
+    let movieImg = moviesContainer.querySelector(".img-pelicula");
+    movieImg.addEventListener("click", () => {
+      modalPelicula.append(divModalMovies);
     });
-
-    btnClose.addEventListener("click", function (e) {
-      e.preventDefault();
-      divModalMovies.classList.remove("active");
-    });
+    moviePopUp(films[i]);
   }
 };
 
@@ -102,23 +72,38 @@ btnMovies.addEventListener("click", () => {
   displayMovies(films);
 });
 
-//innerHTML de modales
+const moviePopUp = (array) => {
+  divModalMovies.classList.add("modalMovie");
+  let divMoviePoster = document.createElement("div");
+  let divMovieDescription = document.createElement("div");
+  let moviePoster = document.createElement("img");
+  moviePoster.setAttribute("src", `${array.poster}`);
+  moviePoster.setAttribute("alt", "Poster of the ${array.title} movie");
+  let movieTitle = document.createElement("h4");
+  movieTitle.innerHTML = `${array.title}`;
+  let movieDescription = document.createElement("p");
+  movieDescription.innerHTML = `${array.description}`;
+  let movieData = document.createElement("ul");
+  movieData.innerHTML = `<li>Director: ${array.director}</li>
+    <li>Producer: ${array.producer}</li>
+    <li>Release date: ${array.release_date}</li>
+    <li>Rating score: ${array.rt_score}</li>`;
 
-/*const moviesModalContainer = document.getElementById("moviesModal");
-const charactersModalContainer = document.getElementById("charactersModal");
-const btnMoviesModal = document.getElementById("btnMoviesModal")
+  let btnClose = document.createElement("button");
+  btnClose.innerHTML = "Close";
 
+  divMoviePoster.appendChild(moviePoster);
+  divMovieDescription.appendChild(movieTitle);
+  divMovieDescription.appendChild(movieDescription);
+  divMovieDescription.appendChild(movieData);
+  divModalMovies.appendChild(divMoviePoster);
+  divModalMovies.appendChild(divMovieDescription);
+  divModalMovies.appendChild(btnClose);
 
-const displayMoviesModal = (films) => {
-    moviesModalContainer.innerHTML = ""
-    for (let i = 0; i < films.length; i++) {
-        moviesModalContainer.innerHTML += displayModal(films[i].title, films[i].description, films[i].director, films[i].producer, films[i].poster, films[i].release_date, films[i].rt_score);
-    }
+  btnClose.addEventListener("click", () => {
+    modalPelicula.remove(divModalMovies);
+  });
 };
-
-btnMoviesModal.addEventListener('click', () => {
-    displayMoviesModal(films);
-});*/
 
 //innerHTML de la página de personajes.
 const btnCharacters = document.getElementById("buttonCharacters");

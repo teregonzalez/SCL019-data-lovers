@@ -66,7 +66,12 @@
                         <option value="TitleZA">Z-A</option>
                     </select>
                 </div>
-                <div id="moviesContainer" class="contenedor-peliculas"></div>
+                <div id="movieModal" class="modal">
+                    <p class="texto-modal" id="modalText"></p>
+             </div>
+                <div id="moviesContainer" class="contenedor-peliculas">
+                </div>
+                
             </div>
 
             <div id="charactersPage" class="characters-page">
@@ -111,6 +116,9 @@
                 </div>
                 <br>
                 <div id="characterContainer" class="contenedor-personajes"></div>
+                <div id="characterModal" class="modal">
+                    <div id="modalContent" class="content-modal"></div>
+                </div>
             </div>
 
             <div id="directorsPage" class="page-directors">
@@ -150,15 +158,8 @@
 
             <div id="factsPage" class="facts-page"></div>
 
-            <!-- Modal peliculas-->
-            <div id="movieModal" class="modal">
-                <div id="modal-content" class="content-modal"></div>
-            </div>
-
             <!-- Modal personajes-->
-            <div id="characterModal" class="modal">
-                <div id="modalContent" class="content-modal"></div>
-            </div>
+            
 
             <div id="root"></div>
 

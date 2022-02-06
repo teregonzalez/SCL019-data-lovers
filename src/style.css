@@ -175,7 +175,7 @@ body {
   border-radius: 13px;
   padding: 40px;
   width: 60%;
-  height: 40vh;
+  height: 60vh;
   overflow-y: scroll;
   margin: 0 auto 70px;
   justify-content: center;
@@ -469,12 +469,33 @@ body {
 /*MODAL PELÍCULAS*/
 
 .modalMovie {
-  background-color: #ffa260;
-  visibility: hidden;
+  background-color: #dcffcf;
   display: flex;
   flex-flow: row;
 }
 
 .modalMovie.active {
   visibility: visible;
+}
+
+.modal {
+  background-color: #dcffcf;
+  z-index: 1;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  margin: auto;
+  width: 80%;
+  height: auto;
+  left: 106px;
+  top: 131px;
+  border-radius: 20px;
+}
+
+.texto-modal {
+  color: rgb(0, 0, 0);
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
 }
