@@ -468,16 +468,6 @@ body {
 
 /*MODAL PELÍCULAS*/
 
-.modalMovie {
-  background-color: #dcffcf;
-  display: flex;
-  flex-flow: row;
-}
-
-.modalMovie.active {
-  visibility: visible;
-}
-
 .modal {
   background-color: #dcffcf;
   z-index: 1;
@@ -490,12 +480,15 @@ body {
   left: 106px;
   top: 131px;
   border-radius: 20px;
+  visibility: hidden;
 }
 
-.texto-modal {
-  color: rgb(0, 0, 0);
-  font-family: Merriweather;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1rem;
+.modalMovies {
+  background-color: #dcffcf;
+  z-index: 1;
+  align-items: left;
+  display: flex;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
 }

@@ -41,31 +41,13 @@ const moviesContainer = document.getElementById("moviesContainer");
 let modalPelicula = document.getElementById("movieModal");
 let divModalMovies = document.createElement("div");
 
-const movies = (title, poster) => {
-  return `
-    <div class="contenedor-imagen-pelicula">
-    <h5 class="nombre-pelicula">${title}</h5>
-    <img class="img-pelicula" id="imageMovie" src="${poster}"> 
-    </div>
-    `;
-};
-
-const displayMovies = (films) => {
+const displayMovies = () => {
   moviesPage.style.display = "block";
   homePage.style.display = "none";
   charactersPage.style.display = "none";
   directorsPage.style.display = "none";
   factsPage.style.display = "none";
-  moviesContainer.innerHTML = "";
-
-  for (let i = 0; i < films.length; i++) {
-    moviesContainer.innerHTML += movies(films[i].title, films[i].poster);
-    let movieImg = moviesContainer.querySelector(".img-pelicula");
-    movieImg.addEventListener("click", () => {
-      modalPelicula.append(divModalMovies);
-    });
-    moviePopUp(films[i]);
-  }
+  movies(films);
 };
 
 btnMovies.addEventListener("click", () => {
@@ -73,12 +55,12 @@ btnMovies.addEventListener("click", () => {
 });
 
 const moviePopUp = (array) => {
-  divModalMovies.classList.add("modalMovie");
+  divModalMovies.classList.add("modalMovies");
   let divMoviePoster = document.createElement("div");
   let divMovieDescription = document.createElement("div");
   let moviePoster = document.createElement("img");
   moviePoster.setAttribute("src", `${array.poster}`);
-  moviePoster.setAttribute("alt", "Poster of the ${array.title} movie");
+  moviePoster.setAttribute("alt", "Poster of the movie");
   let movieTitle = document.createElement("h4");
   movieTitle.innerHTML = `${array.title}`;
   let movieDescription = document.createElement("p");
@@ -101,7 +83,27 @@ const moviePopUp = (array) => {
   divModalMovies.appendChild(btnClose);
 
   btnClose.addEventListener("click", () => {
-    modalPelicula.remove(divModalMovies);
+    modalPelicula.style.visibility = "hidden";
+  });
+};
+
+const movies = (data) => {
+  moviesContainer.innerHTML = ";";
+  data.forEach((array) => {
+    let movieCard = document.createElement("div");
+    movieCard.setAttribute("class", "contenedor-imagen-pelicula");
+    movieCard.innerHTML = `
+    <h5 class="nombre-pelicula">${array.title}</h5>
+    <img class="img-pelicula" id="imageMovie" src="${array.poster}"> 
+    `;
+    movieCard.addEventListener("click", (e) => {
+      e.preventDefault;
+      divModalMovies.innerHTML = "";
+      modalPelicula.style.visibility = "visible";
+      modalPelicula.append(divModalMovies);
+      moviePopUp(array);
+    });
+    moviesContainer.appendChild(movieCard);
   });
 };
 
@@ -141,7 +143,7 @@ const selectDirectors = document.getElementById("movieByDirector");
 
 selectDirectors.addEventListener("change", () => {
   let directors = selectDirectors.value;
-  displayMovies(moviesByDirector(films, directors));
+  movies(moviesByDirector(films, directors));
 });
 
 // Orden de películas por título
