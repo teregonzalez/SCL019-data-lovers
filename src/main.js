@@ -278,4 +278,71 @@ charactersByName.addEventListener("change", () => {
   displayFilter(charactersFilters(films, title, gender, peopleName));
 });
 
-//Modal personajes
+
+// innerHTML de la página de fun facts.
+const btnFacts = document.getElementById("buttonFacts");
+
+const displayFacts = () => {
+    factsPage.style.display = "block";
+    charactersPage.style.display = "none";
+    homePage.style.display = "none";
+    moviesPage.style.display = "none";
+    directorsPage.style.display = "none";
+};
+
+const directoresPeliculas = films.map(element => element.director);
+/*const directoresCantidades = directoresPeliculas.forEach(
+    (director, index) => {
+        if(director[index+1] === director[index]){
+            index+=1
+        } 
+        return [director, index]
+    }
+)*/
+console.log(directoresPeliculas)
+const plugin = {
+    id: 'custom_canvas_background_color',
+    beforeDraw: (chart) => {
+        const ctx = chart.canvas.getContext('2d');
+      ctx.save();
+      ctx.globalAlpha = 1.0;
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.fillStyle = 'rgba(218, 247, 166, 1)';
+      ctx.fillRect(0, 0, chart.width, chart.height);
+      ctx.restore();
+    }
+  };
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["Hayao Miyazaki", "Isao Takahata", "Yoshifumi Kondō", "Hiroyuki Morita", "Gorō Miyazaki", "Hiromasa Yonebayashi"], fontColor: 'black',
+        datasets: [{
+            data: [9, 5, 1, 1, 2, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(191, 63, 121, 0.2)',
+                'rgba(63, 191, 127, 0.2)',
+                'rgba(63, 121, 191, 0.2)',
+                'rgba(146, 63, 191, 0.2)',
+                'rgba(191, 146, 63, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(191, 63, 121, 0.2)',
+                'rgba(63, 191, 127, 0.2)',
+                'rgba(63, 121, 191, 0.2)',
+                'rgba(146, 63, 191, 0.2)',
+                'rgba(191, 146, 63, 0.2)',
+            ],
+            hoverOffset: 4,
+            plugins: [plugin],
+        }]
+}
+});
+
+
+btnFacts.addEventListener("click", () => {
+    displayFacts();
+});
