@@ -263,6 +263,18 @@ body {
 .contenedor-imagen-pelicula {
   padding: 20px;
 }
+.contenedor-facts {
+  background-color: #FFBEBB; 
+  display: flex;
+  flex-flow: row wrap; 
+  border-radius: 13px; 
+  height: auto;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 8px 8px 0px #be5a54;
+  border: 3px solid #74302c;
+}
 
 .img-home {
   width: 70%;
@@ -478,3 +490,12 @@ body {
 .modalMovie.active {
   visibility: visible;
 }
+
+#myChart{
+  max-width: 500px;
+  max-height: 500px;
+  flex-flow: row;
+  margin: auto;
+}
+
+
