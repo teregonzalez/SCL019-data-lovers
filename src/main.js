@@ -38,87 +38,79 @@ window.addEventListener("load", () => displayHome());
 //innerHTML de la página de películas.
 const btnMovies = document.getElementById("buttonMovies");
 const moviesContainer = document.getElementById("moviesContainer");
+let modalPelicula = document.getElementById("movieModal");
+let divModalMovies = document.createElement("div");
 
-const movies = (title, poster) => {
-  return `
-    <div class="contenedor-imagen-pelicula">
-    <h5 class="nombre-pelicula">${title}</h5>
-    <img class="img-pelicula" id="imageMovie" src="${poster}"> 
-    </div>
-    `;
-};
-
-const displayMovies = (films) => {
+const displayMovies = () => {
   moviesPage.style.display = "block";
   homePage.style.display = "none";
   charactersPage.style.display = "none";
   directorsPage.style.display = "none";
   factsPage.style.display = "none";
-  moviesContainer.innerHTML = "";
-  for (let i = 0; i < films.length; i++) {
-    let divModalMovies = document.createElement("div");
-    divModalMovies.classList.add("modalMovie");
-
-    moviesContainer.innerHTML += movies(films[i].title, films[i].poster);
-
-    let divMoviePoster = document.createElement("div");
-    let divMovieDescription = document.createElement("div");
-    let moviePoster = document.createElement("img");
-    moviePoster.setAttribute("src", `${films[i].poster}`);
-    moviePoster.setAttribute("alt", "Poster of the `${films[i].title}` movie");
-    let movieTitle = document.createElement("h4");
-    movieTitle.innerHTML = `${films[i].title}`;
-    let movieDescription = document.createElement("p");
-    movieDescription.innerHTML = `${films[i].description}`;
-    let movieData = document.createElement("ul");
-    movieData.innerHTML = `<li>Director: ${films[i].director}</li>
-  <li>Producer: ${films[i].producer}</li>
-  <li>Release date: ${films[i].release_date}</li>
-  <li>Rating score: ${films[i].rt_score}</li>`;
-
-    let btnClose = document.createElement("button");
-    btnClose.innerHTML = "Close";
-
-    divMoviePoster.appendChild(moviePoster);
-    divMovieDescription.appendChild(movieTitle, movieDescription, movieData);
-    divModalMovies.appendChild(divMoviePoster, divMovieDescription, btnClose);
-
-    let movieImg = document.getElementById("imageMovie");
-    movieImg.addEventListener("click", function (e) {
-      e.preventDefault();
-      moviesContainer.innerHTML += divModalMovies;
-      divModalMovies.classList.add("active");
-      alert("hiciste click");
-    });
-
-    btnClose.addEventListener("click", function (e) {
-      e.preventDefault();
-      divModalMovies.classList.remove("active");
-    });
-  }
+  movies(films);
 };
 
 btnMovies.addEventListener("click", () => {
   displayMovies(films);
 });
 
-//innerHTML de modales
+const moviePopUp = (array) => {
+  divModalMovies.classList.add("modalMovies");
+  let divMoviePoster = document.createElement("div");
+  let divMovieDescription = document.createElement("div");
+  let moviePoster = document.createElement("img");
+  moviePoster.setAttribute("src", `${array.poster}`);
+  moviePoster.setAttribute("alt", "Poster of the movie");
+  moviePoster.classList.add("image-modal-movie");
+  let movieTitle = document.createElement("h4");
+  movieTitle.classList.add("modal-header");
+  movieTitle.innerHTML = `${array.title}`;
+  let movieDescription = document.createElement("p");
+  movieDescription.classList.add("modal-text");
+  movieDescription.innerHTML = `${array.description}`;
+  let movieData = document.createElement("ul");
+  movieData.classList.add("modal-list");
+  movieData.innerHTML = `<li class="modal-list"><b>Director:</b> ${array.director}</li>
+    <li class="modal-list"><b>Producer:</b> ${array.producer}</li>
+    <li class="modal-list"><b>Release date:</b> ${array.release_date}</li>
+    <li class="modal-list"><b>Rating score:</b> ${array.rt_score}</li>`;
 
-/*const moviesModalContainer = document.getElementById("moviesModal");
-const charactersModalContainer = document.getElementById("charactersModal");
-const btnMoviesModal = document.getElementById("btnMoviesModal")
+  let btnClose = document.createElement("span");
+  btnClose.classList.add("btn-modal");
+  btnClose.innerHTML = "&times;";
 
+  divMoviePoster.appendChild(moviePoster);
+  divMovieDescription.appendChild(movieTitle);
+  divMovieDescription.appendChild(movieDescription);
+  divMovieDescription.appendChild(movieData);
+  divModalMovies.appendChild(divMoviePoster);
+  divModalMovies.appendChild(divMovieDescription);
+  divModalMovies.appendChild(btnClose);
 
-const displayMoviesModal = (films) => {
-    moviesModalContainer.innerHTML = ""
-    for (let i = 0; i < films.length; i++) {
-        moviesModalContainer.innerHTML += displayModal(films[i].title, films[i].description, films[i].director, films[i].producer, films[i].poster, films[i].release_date, films[i].rt_score);
-    }
+  btnClose.addEventListener("click", () => {
+    modalPelicula.style.visibility = "hidden";
+  });
 };
 
-btnMoviesModal.addEventListener('click', () => {
-    displayMoviesModal(films);
-});*/
+const movies = (data) => {
+  moviesContainer.innerHTML = ";";
+  data.forEach((array) => {
+    let movieCard = document.createElement("div");
+    movieCard.setAttribute("class", "contenedor-imagen-pelicula");
+    movieCard.innerHTML = `
+    <h5 class="nombre-pelicula">${array.title}</h5>
+    <img class="img-pelicula" id="imageMovie" src="${array.poster}"> 
+    `;
+    movieCard.addEventListener("click", (e) => {
+      e.preventDefault;
+      divModalMovies.innerHTML = "";
+      modalPelicula.style.visibility = "visible";
+      modalPelicula.append(divModalMovies);
+      moviePopUp(array);
+    });
+    moviesContainer.appendChild(movieCard);
+  });
+};
 
 //innerHTML de la página de personajes.
 const btnCharacters = document.getElementById("buttonCharacters");
@@ -156,7 +148,7 @@ const selectDirectors = document.getElementById("movieByDirector");
 
 selectDirectors.addEventListener("change", () => {
   let directors = selectDirectors.value;
-  displayMovies(moviesByDirector(films, directors));
+  movies(moviesByDirector(films, directors));
 });
 
 // Orden de películas por título
@@ -177,13 +169,62 @@ moviesByYear.addEventListener("change", () => {
 
 // Contenedor que muestra imagenes de personajes.
 const characterContainer = document.getElementById("characterContainer");
+let divModalCharacter = document.createElement("div");
+let modalCharacter = document.getElementById("characterModal");
 
-const characterImage = (characterImg, name) => {
-  return `
-    <div class="contenedor-imagen-personaje">
-    <h5 class="nombre-personaje">${name}</h5>
-    <img class="img-personaje" src="${characterImg}">
-    </div>`;
+const characterPopUp = (array) => {
+  divModalCharacter.classList.add("modalCharacter");
+  let divCharacterImg = document.createElement("div");
+  let characterImg = document.createElement("img");
+  characterImg.setAttribute("src", `${array.img}`);
+  characterImg.setAttribute("alt", "Image of the character");
+  characterImg.classList.add("image-modal");
+  let divCharacterInfo = document.createElement("div");
+  divCharacterInfo.classList.add("modal-text");
+  let characterName = document.createElement("h4");
+  characterName.innerHTML = `${array.name}`;
+  characterName.classList.add("modal-header");
+  let characterData = document.createElement("ul");
+  characterData.classList.add("modal-list");
+  characterData.innerHTML = `<li class="modal-list"><b>Gender:</b> ${array.gender}</li>
+    <li class="modal-list"><b>Age:</b> ${array.age}</li>
+    <li class="modal-list"><b>Eye color:</b> ${array.eye_color}</li>
+    <li class="modal-list"><b>Hair color:</b> ${array.hair_color}</li>
+    <li class="modal-list"><b>Specie:</b> ${array.specie}</li>`;
+
+  let btnClose = document.createElement("span");
+  btnClose.classList.add("btn-modal");
+  btnClose.innerHTML = "&times;";
+
+  divCharacterImg.appendChild(characterImg);
+  divCharacterInfo.appendChild(characterName);
+  divCharacterInfo.appendChild(characterData);
+  divModalCharacter.appendChild(divCharacterImg);
+  divModalCharacter.appendChild(divCharacterInfo);
+  divModalCharacter.appendChild(btnClose);
+  modalCharacter.appendChild(divModalCharacter);
+
+  btnClose.addEventListener("click", () => {
+    modalCharacter.style.visibility = "hidden";
+  });
+};
+
+const charactersDisplay = (data) => {
+  data.forEach((array) => {
+    let characterCard = document.createElement("div");
+    characterCard.setAttribute("class", "contenedor-imagen-personaje");
+    characterCard.innerHTML = `
+    <h5 class="nombre-personaje">${array.name}</h5>
+    <img class="img-personaje" src="${array.img}">
+    `;
+    characterCard.addEventListener("click", () => {
+      divModalCharacter.innerHTML = "";
+      modalCharacter.style.visibility = "visible";
+      modalCharacter.append(divModalCharacter);
+      characterPopUp(array);
+    });
+    characterContainer.appendChild(characterCard);
+  });
 };
 
 // Función de display que vacía el contenedor y luego lo llena con imagen y nombre de personajes.
@@ -191,12 +232,7 @@ const displayCharacters = (films) => {
   characterContainer.innerHTML = "";
   for (let i = 0; i < films.length; i++) {
     let characters = films[i].people;
-    for (let j = 0; j < characters.length; j++) {
-      characterContainer.innerHTML += characterImage(
-        characters[j].img,
-        characters[j].name
-      );
-    }
+    charactersDisplay(characters);
   }
 };
 
@@ -204,12 +240,7 @@ const displayFilter = (films) => {
   characterContainer.innerHTML = "";
   for (let i = 0; i < films.length; i++) {
     let characters = films[i];
-    for (let j = 0; j < characters.length; j++) {
-      characterContainer.innerHTML += characterImage(
-        characters[j].img,
-        characters[j].name
-      );
-    }
+    charactersDisplay(characters);
   }
 };
 
