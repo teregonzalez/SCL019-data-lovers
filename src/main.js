@@ -291,6 +291,8 @@ const displayFacts = () => {
 };
 
 const directoresPeliculas = films.map(element => element.director);
+const productoresPeliculas = films.map(element => element.rt_score);
+const titlePeliculas = films.map(element => element.title);
 /*const directoresCantidades = directoresPeliculas.forEach(
     (director, index) => {
         if(director[index+1] === director[index]){
@@ -300,12 +302,13 @@ const directoresPeliculas = films.map(element => element.director);
     }
 )*/
 console.log(directoresPeliculas)
+console.log(productoresPeliculas)
+console.log(titlePeliculas)
 const plugin = {
     id: 'custom_canvas_background_color',
     beforeDraw: (chart) => {
         const ctx = chart.canvas.getContext('2d');
       ctx.save();
-      ctx.globalAlpha = 1.0;
       ctx.globalCompositeOperation = 'destination-over';
       ctx.fillStyle = 'rgba(218, 247, 166, 1)';
       ctx.fillRect(0, 0, chart.width, chart.height);
@@ -313,30 +316,77 @@ const plugin = {
     }
   };
 
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
+const ctx = document.getElementById('chartDirectores').getContext('2d');
+const chartDirectores = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ["Hayao Miyazaki", "Isao Takahata", "Yoshifumi Kondō", "Hiroyuki Morita", "Gorō Miyazaki", "Hiromasa Yonebayashi"], fontColor: 'black',
+        labels: ["Hayao Miyazaki", "Isao Takahata", "Yoshifumi Kondō", "Hiroyuki Morita", "Gorō Miyazaki", "Hiromasa Yonebayashi"],
         datasets: [{
             data: [9, 5, 1, 1, 2, 2],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(191, 63, 121, 0.2)',
-                'rgba(63, 191, 127, 0.2)',
-                'rgba(63, 121, 191, 0.2)',
-                'rgba(146, 63, 191, 0.2)',
-                'rgba(191, 146, 63, 0.2)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(191, 63, 121, 1)',
+                'rgba(63, 191, 127, 1)',
+                'rgba(63, 121, 191, 1)',
+                'rgba(146, 63, 191, 1)',
+                'rgba(191, 146, 63, 1)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(191, 63, 121, 0.2)',
-                'rgba(63, 191, 127, 0.2)',
-                'rgba(63, 121, 191, 0.2)',
-                'rgba(146, 63, 191, 0.2)',
-                'rgba(191, 146, 63, 0.2)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(191, 63, 121, 1)',
+                'rgba(63, 191, 127, 1)',
+                'rgba(63, 121, 191, 1)',
+                'rgba(146, 63, 191, 1)',
+                'rgba(191, 146, 63, 1)',
             ],
             hoverOffset: 4,
+            plugins: [plugin],
+        }]
+}
+});
+
+
+const ctx1 = document.getElementById('chartGender').getContext('2d');
+const chartGender = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+        labels: ["Female", "Male", "Unknow"],
+        datasets: [{
+            data: [81, 87, 1],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(191, 63, 121, 1)',
+                'rgba(63, 191, 127, 1)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(191, 63, 121, 1)',
+                'rgba(63, 191, 127, 1)',
+            ],
+            hoverOffset: 4,
+            plugins: [plugin],
+        }]
+}
+});
+
+const ctx2 = document.getElementById('chartScore').getContext('2d');
+const chartScore = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ["Castle in the Sky", "My Neighbor Totoro", "Kiki's Delivery Service", "Grave of the Fireflies",
+        "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", 
+        "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo on the Cliff by the Sea", 
+        "The Secret World of Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"],
+        datasets: [{
+            label: 'Score',
+            data: [95, 93, 96, 97, 100, 94, 78, 91, 92, 75, 97, 89, 87, 41, 92, 95, 83, 89, 100, 92],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+            ],
+            beginAtZero: true,
             plugins: [plugin],
         }]
 }
