@@ -93,7 +93,7 @@ const moviePopUp = (array) => {
 };
 
 const movies = (data) => {
-  moviesContainer.innerHTML = ";";
+  moviesContainer.innerHTML = "";
   data.forEach((array) => {
     let movieCard = document.createElement("div");
     movieCard.setAttribute("class", "contenedor-imagen-pelicula");
@@ -291,82 +291,81 @@ const displayFacts = () => {
 /* eslint-disable no-unused-vars*/
 /* eslint-disable no-undef */
 const plugin = {
-    id: 'custom_canvas_background_color',
-    beforeDraw: (chart) => {
-        const ctx = chart.canvas.getContext('2d');
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-over';
-      ctx.fillStyle = 'rgba(218, 247, 166, 1)';
-      ctx.fillRect(0, 0, chart.width, chart.height);
-      ctx.restore();
-    }
-  };
+  id: "custom_canvas_background_color",
+  beforeDraw: (chart) => {
+    const ctx = chart.canvas.getContext("2d");
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.fillStyle = "rgba(218, 247, 166, 1)";
+    ctx.fillRect(0, 0, chart.width, chart.height);
+    ctx.restore();
+  },
+};
 
-const ctx = document.getElementById('chartDirectores').getContext('2d');
+const ctx = document.getElementById("chartDirectores").getContext("2d");
 const chartDirectores = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ["Hayao Miyazaki", "Isao Takahata", "Yoshifumi Kondō", "Hiroyuki Morita", "Gorō Miyazaki", "Hiromasa Yonebayashi"],
-        datasets: [{
-            data: [9, 5, 1, 1, 2, 2],
-            backgroundColor: [
-                "#665191",
-                "#a05195",
-                "#d45087",
-                "#f95d6a",
-                "#ff7c43",
-                "#ffa600",
-              ],
-              borderColor: ["#fff5eb"],
-              hoverOffset: 4,
-              plugins: [plugin],
-        }]
-}
+  type: "doughnut",
+  data: {
+    labels: [
+      "Hayao Miyazaki",
+      "Isao Takahata",
+      "Yoshifumi Kondō",
+      "Hiroyuki Morita",
+      "Gorō Miyazaki",
+      "Hiromasa Yonebayashi",
+    ],
+    datasets: [
+      {
+        data: [9, 5, 1, 1, 2, 2],
+        backgroundColor: [
+          "#665191",
+          "#a05195",
+          "#d45087",
+          "#f95d6a",
+          "#ff7c43",
+          "#ffa600",
+        ],
+        borderColor: ["#fff5eb"],
+        hoverOffset: 4,
+        plugins: [plugin],
+      },
+    ],
+  },
 });
 
-
-const ctx1 = document.getElementById('chartGender').getContext('2d');
+const ctx1 = document.getElementById("chartGender").getContext("2d");
 const chartGender = new Chart(ctx1, {
-    type: 'doughnut',
-    data: {
-        labels: ["Female", "Male", "Unknow"],
-        datasets: [{
-            data: [81, 87, 1],
-            backgroundColor: [
-                "#665191",
-                "#a05195",
-                "#d45087",
-            ],
-            borderColor: ["#fff5eb"],
-            hoverOffset: 4,
-            plugins: [plugin],
-        }]
-}
+  type: "doughnut",
+  data: {
+    labels: ["Female", "Male", "Unknow"],
+    datasets: [
+      {
+        data: [81, 87, 1],
+        backgroundColor: ["#665191", "#a05195", "#d45087"],
+        borderColor: ["#fff5eb"],
+        hoverOffset: 4,
+        plugins: [plugin],
+      },
+    ],
+  },
 });
 
-const ctx2 = document.getElementById('chartScore').getContext('2d');
+const ctx2 = document.getElementById("chartScore").getContext("2d");
 const chartScore = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-        labels: ["Score 41-50",
-        "Score 71-80",
-        "Score 81-90",
-        "Score 91-100"
-     ],
-        datasets: [{
-            label: 'Score',
-            data: [1, 2, 4, 13],
-            backgroundColor: [
-                "#665191",
-                "#a05195",
-                "#d45087",
-                "#f95d6a",
-            ],
-            borderColor: ["#fff5eb"],
-            beginAtZero: true,
-            plugins: [plugin],
-        }]
-}
+  type: "bar",
+  data: {
+    labels: ["Score 41-50", "Score 71-80", "Score 81-90", "Score 91-100"],
+    datasets: [
+      {
+        label: "Score",
+        data: [1, 2, 4, 13],
+        backgroundColor: ["#665191", "#a05195", "#d45087", "#f95d6a"],
+        borderColor: ["#fff5eb"],
+        beginAtZero: true,
+        plugins: [plugin],
+      },
+    ],
+  },
 });
 /* eslint-enable no-unused-vars */
 /* eslint-enable no-undef */
