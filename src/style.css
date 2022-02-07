@@ -574,13 +574,6 @@ body {
   cursor: pointer;
 }
 
-#myChart {
-  max-width: 500px;
-  max-height: 500px;
-  flex-flow: row;
-  margin: auto;
-}
-
 .factsInfo {
   font-family: Merriweather;
   font-style: normal;
