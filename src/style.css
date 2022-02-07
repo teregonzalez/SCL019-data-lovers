@@ -265,16 +265,17 @@ body {
   padding: 20px;
 }
 .contenedor-facts {
-  background-color: #FFBEBB; 
+  background-color: #ffe0de;
   display: flex;
-  flex-flow: row wrap; 
-  border-radius: 13px; 
+  flex-flow: column;
+  border-radius: 13px;
   height: auto;
   width: 60%;
   padding: 20px;
   margin: auto;
   box-shadow: 8px 8px 0px #be5a54;
   border: 3px solid #74302c;
+  overflow: auto;
 }
 
 .img-home {
@@ -572,11 +573,17 @@ body {
   cursor: pointer;
 }
 
-#myChart{
+#myChart {
   max-width: 500px;
   max-height: 500px;
   flex-flow: row;
   margin: auto;
 }
 
-
+.factsInfo {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #181717;
+}

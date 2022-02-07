@@ -278,21 +278,18 @@ charactersByName.addEventListener("change", () => {
   displayFilter(charactersFilters(films, title, gender, peopleName));
 });
 
-
 // innerHTML de la página de fun facts.
 const btnFacts = document.getElementById("buttonFacts");
 
 const displayFacts = () => {
-    factsPage.style.display = "block";
-    charactersPage.style.display = "none";
-    homePage.style.display = "none";
-    moviesPage.style.display = "none";
-    directorsPage.style.display = "none";
+  factsPage.style.display = "block";
+  charactersPage.style.display = "none";
+  homePage.style.display = "none";
+  moviesPage.style.display = "none";
+  directorsPage.style.display = "none";
 };
 
-const directoresPeliculas = films.map(element => element.director);
-const productoresPeliculas = films.map(element => element.rt_score);
-const titlePeliculas = films.map(element => element.title);
+const directoresPeliculas = films.map((element) => element.director);
 /*const directoresCantidades = directoresPeliculas.forEach(
     (director, index) => {
         if(director[index+1] === director[index]){
@@ -394,5 +391,5 @@ const chartScore = new Chart(ctx2, {
 
 
 btnFacts.addEventListener("click", () => {
-    displayFacts();
+  displayFacts();
 });
