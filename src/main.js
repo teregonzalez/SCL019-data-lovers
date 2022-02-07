@@ -93,7 +93,7 @@ const moviePopUp = (array) => {
 };
 
 const movies = (data) => {
-  moviesContainer.innerHTML = ";";
+  moviesContainer.innerHTML = ";"
   data.forEach((array) => {
     let movieCard = document.createElement("div");
     movieCard.setAttribute("class", "contenedor-imagen-pelicula");
