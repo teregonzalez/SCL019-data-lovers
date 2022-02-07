@@ -261,7 +261,6 @@ charactersByFilm.addEventListener("change", () => {
   let options = charactersSelectValues();
   let [title, gender, peopleName] = options;
   displayFilter(charactersFilters(films, title, gender, peopleName));
-  console.log(charactersFilters(films, title, gender, peopleName));
 });
 
 // Función de filtrado de personajes por género.
@@ -289,18 +288,8 @@ const displayFacts = () => {
   directorsPage.style.display = "none";
 };
 
-const directoresPeliculas = films.map((element) => element.director);
-/*const directoresCantidades = directoresPeliculas.forEach(
-    (director, index) => {
-        if(director[index+1] === director[index]){
-            index+=1
-        } 
-        return [director, index]
-    }
-)*/
-console.log(directoresPeliculas)
-console.log(productoresPeliculas)
-console.log(titlePeliculas)
+/* eslint-disable no-unused-vars*/
+/* eslint-disable no-undef */
 const plugin = {
     id: 'custom_canvas_background_color',
     beforeDraw: (chart) => {
@@ -321,23 +310,16 @@ const chartDirectores = new Chart(ctx, {
         datasets: [{
             data: [9, 5, 1, 1, 2, 2],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(191, 63, 121, 1)',
-                'rgba(63, 191, 127, 1)',
-                'rgba(63, 121, 191, 1)',
-                'rgba(146, 63, 191, 1)',
-                'rgba(191, 146, 63, 1)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(191, 63, 121, 1)',
-                'rgba(63, 191, 127, 1)',
-                'rgba(63, 121, 191, 1)',
-                'rgba(146, 63, 191, 1)',
-                'rgba(191, 146, 63, 1)',
-            ],
-            hoverOffset: 4,
-            plugins: [plugin],
+                "#665191",
+                "#a05195",
+                "#d45087",
+                "#f95d6a",
+                "#ff7c43",
+                "#ffa600",
+              ],
+              borderColor: ["#fff5eb"],
+              hoverOffset: 4,
+              plugins: [plugin],
         }]
 }
 });
@@ -351,15 +333,11 @@ const chartGender = new Chart(ctx1, {
         datasets: [{
             data: [81, 87, 1],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(191, 63, 121, 1)',
-                'rgba(63, 191, 127, 1)',
+                "#665191",
+                "#a05195",
+                "#d45087",
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(191, 63, 121, 1)',
-                'rgba(63, 191, 127, 1)',
-            ],
+            borderColor: ["#fff5eb"],
             hoverOffset: 4,
             plugins: [plugin],
         }]
@@ -370,25 +348,28 @@ const ctx2 = document.getElementById('chartScore').getContext('2d');
 const chartScore = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: ["Castle in the Sky", "My Neighbor Totoro", "Kiki's Delivery Service", "Grave of the Fireflies",
-        "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", 
-        "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo on the Cliff by the Sea", 
-        "The Secret World of Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"],
+        labels: ["Score 41-50",
+        "Score 71-80",
+        "Score 81-90",
+        "Score 91-100"
+     ],
         datasets: [{
             label: 'Score',
-            data: [95, 93, 96, 97, 100, 94, 78, 91, 92, 75, 97, 89, 87, 41, 92, 95, 83, 89, 100, 92],
+            data: [1, 2, 4, 13],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
+                "#665191",
+                "#a05195",
+                "#d45087",
+                "#f95d6a",
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-            ],
+            borderColor: ["#fff5eb"],
             beginAtZero: true,
             plugins: [plugin],
         }]
 }
 });
-
+/* eslint-enable no-unused-vars */
+/* eslint-enable no-undef */
 
 btnFacts.addEventListener("click", () => {
   displayFacts();

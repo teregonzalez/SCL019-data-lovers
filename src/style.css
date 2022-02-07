@@ -269,10 +269,11 @@ body {
   display: flex;
   flex-flow: column;
   border-radius: 13px;
-  height: auto;
+  height: 60vh;
   width: 60%;
   padding: 20px;
   margin: auto;
+  overflow-y: scroll;
   box-shadow: 8px 8px 0px #be5a54;
   border: 3px solid #74302c;
   overflow: auto;
@@ -586,4 +587,10 @@ body {
   font-weight: bold;
   font-size: 1.5rem;
   color: #181717;
+  margin-top: 50px;
 }
+
+canvas {
+  margin: 20px auto;
+}
+
